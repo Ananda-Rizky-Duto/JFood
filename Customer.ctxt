@@ -10,6 +10,7 @@ comment12.params=
 comment12.target=void\ printData()
 comment2.params=
 comment2.target=int\ getId()
+comment2.text=\r\n\ Metode\ untuk\ mendapatkan\ id\r\n\ \r\n\ @return\ id\ dari\ pelanggan\r\n
 comment3.params=
 comment3.target=java.lang.String\ getName()
 comment4.params=

@@ -1,5 +1,13 @@
 public class Invoice
 {
+    /**
+     * Kelas ini digunakan untuk getter data invoice pada JFood.
+     * 
+     * @author Ananda Rizky Duto Pamungkas
+     * @version 27 Februari 2020
+     * 
+     */
+    
     private int id;
     private int idFood;
     private String date;
@@ -17,12 +25,12 @@ public class Invoice
 
     public int getId()
     {
-        return 0;
+        return id;
     }
 
     public int gerIdFood()
     {
-        return 0;
+        return idFood;
     }
     
     public String getDate()
@@ -32,7 +40,7 @@ public class Invoice
     
     public int getTotalPrice()
     {
-        return 0;
+        return totalPrice;
     }
     
     public Customer getCustomer()

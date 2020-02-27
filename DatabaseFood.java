@@ -1,5 +1,13 @@
 public class DatabaseFood
 {
+    /**
+     * Kelas ini digunakan untuk database makanan pada JFood.
+     * 
+     * @author Ananda Rizky Duto Pamungkas
+     * @version 27 Februari 2020
+     * 
+     */
+    
     private String[] listFood;
     
     public DatabaseFood()

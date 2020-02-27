@@ -1,5 +1,13 @@
 public class Location
 {
+    /**
+     * Kelas ini digunakan untuk getter data lokasi pada JFood.
+     * 
+     * @author Ananda Rizky Duto Pamungkas
+     * @version 27 Februari 2020
+     * 
+     */
+    
     private String province;
     private String description;
     private String city;

@@ -1,5 +1,13 @@
 public class Customer
 {
+    /**
+     * Kelas ini digunakan untuk getter data pelanggan pada JFood.
+     * 
+     * @author Ananda Rizky Duto Pamungkas
+     * @version 27 Februari 2020
+     * 
+     */
+    
     private int id;
     private String name;
     private String email;
@@ -15,9 +23,14 @@ public class Customer
         this.joinDate = joinDate;
     }
 
+    /*
+     * Metode untuk mendapatkan id
+     * 
+     * @return id dari pelanggan
+     */
     public int getId()
     {
-        return 0;
+        return id;
     }
 
     public String getName()

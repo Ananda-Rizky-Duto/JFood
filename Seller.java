@@ -1,5 +1,13 @@
 public class Seller
 {
+    /**
+     * Kelas ini digunakan untuk getter data penjual pada JFood.
+     * 
+     * @author Ananda Rizky Duto Pamungkas
+     * @version 27 Februari 2020
+     * 
+     */
+    
     private int id;
     private String name;
     private String email;
@@ -17,7 +25,7 @@ public class Seller
 
     public int getId()
     {
-        return 0;
+        return id;
     }
 
     public String getName()

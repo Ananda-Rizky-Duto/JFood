@@ -1,5 +1,13 @@
 public class Food
 {
+    /**
+     * Kelas ini digunakan untuk getter data makanan pada JFood.
+     * 
+     * @author Ananda Rizky Duto Pamungkas
+     * @version 27 Februari 2020
+     * 
+     */
+    
     private int id;
     private String name;
     private Seller seller;
@@ -17,7 +25,7 @@ public class Food
 
     public int getId()
     {
-        return 0;
+        return id;
     }
 
     public String getName()
