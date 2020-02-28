@@ -1,3 +1,11 @@
+/**
+ * Kelas ini digunakan sebagai penyimpan fungsi main
+ * 
+ * @author Ananda Rizky Duto Pamungkas
+ * @version 27 Februari 2020
+ * 
+ */
+
 public class JFood
 {
     Location location;
@@ -5,6 +13,10 @@ public class JFood
     Food food;
     Customer customer;
     Invoice invoice;
+    
+    /*
+     * Metode main yang digunakan untuk mengisi objek dari beberapa kelas
+     */
     
     public static void main(String[] args)
     {
