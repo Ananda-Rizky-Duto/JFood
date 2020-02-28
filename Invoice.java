@@ -145,6 +145,6 @@ public class Invoice
     
     public void printData()
     {
-        System.out.println(this.idFood);
+        System.out.println(this.totalPrice);
     }
 }
