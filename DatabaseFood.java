@@ -2,18 +2,13 @@
  * Kelas ini digunakan untuk database makanan pada JFood.
  * 
  * @author Ananda Rizky Duto Pamungkas
- * @version 27 Februari 2020
+ * @version 5 Maret 2020
  * 
  */
 
 public class DatabaseFood
 {
-    private String[] listFood;
-    
-    public DatabaseFood()
-    {
-        
-    }
+    private static String[] listFood;
     
     /*
      * Metode untuk menambahkan makanan pada JFood
@@ -21,7 +16,7 @@ public class DatabaseFood
      * @return sementara false
      */
     
-    public boolean addFood(Food food)
+    public static boolean addFood(Food food)
     {
         return false;
     }
@@ -32,7 +27,7 @@ public class DatabaseFood
      * @return sementara false
      */
     
-    public boolean removeFood(Food food)
+    public static boolean removeFood(Food food)
     {
         return false;
     }
@@ -43,7 +38,7 @@ public class DatabaseFood
      * @return sementara null
      */
     
-    public Food getFood()
+    public static Food getFood()
     {
         return null;
     }
@@ -54,7 +49,7 @@ public class DatabaseFood
      * @return listFood dari database
      */
     
-    public String[] getListFood()
+    public static String[] getListFood()
     {
         return listFood;
     }
