@@ -13,13 +13,13 @@ public enum PaymentType
     
     public String toString()
     {
-        return PaymentType;
+        return paymentType;
     }
     
-    private String PaymentType;
+    private String paymentType;
     
-    PaymentType(String PaymentType)
+    PaymentType(String paymentType)
     {
-        this.PaymentType = PaymentType;
+        this.paymentType = paymentType;
     }
 }

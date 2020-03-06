@@ -3,6 +3,6 @@ comment0.target=PaymentType
 comment0.text=\r\n\ Enumeration\ class\ PaymentType\ -\ jenis\ cara\ pembayaran\r\n\r\n\ @author\ Ananda\ Rizky\ Duto\ Pamungkas\r\n\ @version\ 5\ Maret\ 2020\r\n\ \r\n
 comment1.params=
 comment1.target=java.lang.String\ toString()
-comment2.params=PaymentType
+comment2.params=paymentType
 comment2.target=PaymentType(java.lang.String)
 numComments=3

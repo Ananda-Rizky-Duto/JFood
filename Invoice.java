@@ -13,18 +13,21 @@ public class Invoice
     private String date;
     private int totalPrice;
     private Customer customer;
+    private PaymentType paymentType;
+    private InvoiceStatus status;
 
     /*
      * Metode untuk melakukan referensi dari suatu objek private pada kelas
      */
     
-    public Invoice(int id, int idFood, String date, Customer customer, int totalPrice)
+    public Invoice(int id, int idFood, String date, Customer customer, int totalPrice, InvoiceStatus status)
     {
         this.id = id;
         this.idFood = idFood;
         this.date = date;
         this.customer = customer;
         this.totalPrice = totalPrice;
+        this.status = status;
     }
 
     /*
@@ -82,6 +85,16 @@ public class Invoice
         return customer;
     }
     
+    public PaymentType getPaymentType()
+    {
+        return paymentType;
+    }
+    
+    public InvoiceStatus getInvoiceStatus()
+    {
+        return status;
+    }
+    
     /*
      * Metode untuk merubah id invoice
      * 
@@ -137,6 +150,16 @@ public class Invoice
         this.customer = customer;
     }
     
+    public void setPaymentType(PaymentType paymentType)
+    {
+        this.paymentType = paymentType;
+    }
+    
+    public void setInvoiceStatus(InvoiceStatus status)
+    {
+        this.status = status;
+    }
+    
     /*
      * Metode untuk menampilkan data
      * 
@@ -145,6 +168,12 @@ public class Invoice
     
     public void printData()
     {
-        System.out.println(this.totalPrice);
+        System.out.println("===============INVOICE===============");
+        System.out.println("ID: " + this.id);
+        System.out.println("Food ID: " + this.idFood);
+        System.out.println("Date: " + this.date);
+        System.out.println("Customer: " + customer.getName());
+        System.out.println("Total Price: " + this.totalPrice);
+        System.out.println("Status: " + this.status);
     }
 }

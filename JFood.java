@@ -24,8 +24,8 @@ public class JFood
         Seller seller1 = new Seller(1, "Milo", "milo@gmail.com", "098765432112", location1);
         Food food1 = new Food(1, "Sushi", seller1, 10000, FoodCategory.Japanese);
         Customer customer1 = new Customer(1, "Bayu", "bayu@gmail.com", "12345678", "240220");
-        Invoice invoice1 = new Invoice(1, 1, "250220", customer1, 20000);
+        Invoice invoice1 = new Invoice(1, 1, "25/02/2020", customer1, 20000, InvoiceStatus.Finished);
 
-        food1.printData();
+        invoice1.printData();
     }
 }
