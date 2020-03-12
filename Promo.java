@@ -74,10 +74,10 @@ public class Promo
    
    public void printData()
    {
-       System.out.println(this.id);
-       System.out.println(this.code);
-       System.out.println(this.discount);
-       System.out.println(this.minPrice);
-       System.out.println(this.active);
+       System.out.println("ID : " + this.id);
+       System.out.println("Code : " + this.code);
+       System.out.println("Discount : " + this.discount);
+       System.out.println("Minimum Price : " + this.minPrice);
+       System.out.println("Status : " + this.active);
    }
 }

@@ -26,10 +26,10 @@ public class JFood
         Food food2 = new Food(2, "Sashimi", seller1, 7000, FoodCategory.Japanese);
         Food food3 = new Food(3, "Ramen", seller1, 15000, FoodCategory.Japanese);
         Customer customer1 = new Customer(1, "Bayu", "bayu@gmail.com", "12345678", "240220");
-        Promo promo1 = new Promo(1, "aselole", 5000, 7000, true);
-        CashlessInvoice cashlessInvoice1 = new CashlessInvoice(1, food3, "15/3/2020", customer1, InvoiceStatus.Ongoing);
+        Promo promo1 = new Promo(1, "aselole", 2000, 5000, true);
+        CashlessInvoice cashlessInvoice1 = new CashlessInvoice(1, food2, "15/3/2020", customer1, InvoiceStatus.Ongoing);
         CashlessInvoice cashlessInvoice2 = new CashlessInvoice(2, food1, "16/3/2020", customer1, InvoiceStatus.Ongoing, promo1);
-        CashlessInvoice cashlessInvoice3 = new CashlessInvoice(3, food2, "17/3/2020", customer1, InvoiceStatus.Ongoing, promo1);
+        CashlessInvoice cashlessInvoice3 = new CashlessInvoice(3, food3, "17/3/2020", customer1, InvoiceStatus.Ongoing, promo1);
         
         cashlessInvoice1.setTotalPrice();
         cashlessInvoice2.setTotalPrice();
