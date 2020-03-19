@@ -17,8 +17,8 @@ public class Customer
     private String email;
     private String password;
     private Calendar joinDate;
-    private static final String EMAIL_PATTERN = "^[\\w!#$%&’*+/=?`{|}~^-]+(?:\\.[\\w!#$%&’*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]$"; 
-    private static final String PASSWORD_PATTERN = "((?=.[a-z])(?=.d)(?=.[@#$%])(?=.[A-Z]).{6,16})";
+    private static final String EMAIL_PATTERN = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^-]+(?:\\.[a-zA-Z0-9_!#$%&'*+/=?`{|}~^-]+)*@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$"; 
+    private static final String PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,}$";
 
     /*
      * Metode untuk melakukan referensi dari suatu objek private pada kelas
