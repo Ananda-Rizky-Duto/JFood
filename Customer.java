@@ -43,7 +43,7 @@ public class Customer
         this.name = name;
         setEmail(email);
         setPassword(password);
-        this.joinDate = new GregorianCalendar(dayOfMonth, month, year);        
+        this.joinDate = new GregorianCalendar(year, month, dayOfMonth);        
     }
     
      /*
@@ -192,7 +192,7 @@ public class Customer
 
     public void setJoinDate(int year, int month, int dayOfMonth)
     {
-        this.joinDate = new GregorianCalendar(dayOfMonth, month, year);
+        this.joinDate = new GregorianCalendar(year, month, dayOfMonth);
     }
     
     /*
@@ -203,16 +203,17 @@ public class Customer
         
     public String toString()
     {
-        /*
-        SimpleDateFormat format = new SimpleDateFormat("dd.MMMM.yyyy");
+        
+        SimpleDateFormat format = new SimpleDateFormat("dd MMMM yyyy");
+        String months[] = {"","Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
         if(joinDate != null)
         {
-            return "Id = " + id + "\nNama = " + name + "\nEmail = " + email + "\nPassword = " + password + "\nJoin Date : " + format.format(joinDate);
+            return "Id = " + id + "\nNama = " + name + "\nEmail = " + email + "\nPassword = " + password + "\nJoin Date : " +  joinDate.get(Calendar.DATE)+" "+months[joinDate.get(Calendar.MONTH)]+" "+joinDate.get(Calendar.YEAR);
         }
         
         else
-        {*/
+        {
             return "Id = " + id + "\nNama = " + name + "\nEmail = " + email + "\nPassword = " + password + "\nJoin Date : " + joinDate;
-        //}
+        }
     }
 }

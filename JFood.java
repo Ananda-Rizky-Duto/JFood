@@ -60,5 +60,9 @@ public class JFood
         System.out.println(customer1 + "\n");
         System.out.println(customer2 + "\n");
         System.out.println(customer3 + "\n");
+        
+        customer1.setEmail("gerald@gmail.com");
+        customer1.setPassword("123456Ui");
+        System.out.println(customer1 + "\n");
     }
 }
