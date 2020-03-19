@@ -143,14 +143,8 @@ public class Food
      * @return name dari makanan
      */
     
-    public void printData()
+    public String toString()
     {
-        System.out.println("===============FOOD===============");
-        System.out.println("ID: " + this.id);
-        System.out.println("Name: " + this.name);
-        System.out.println("Seller: " + seller.getName());
-        System.out.println("City: " + seller.getLocation().getCity());
-        System.out.println("Price: " + this.price);
-        System.out.println("Category: " + this.category);
+        return "Id = " + id + "\nNama = " + name + "\nSeller = " + getSeller().getName() + "\nCity = " + getSeller().getLocation().getCity() + "\nPrice : " + price + "\nCategory : " + getCategory();
     }
 }

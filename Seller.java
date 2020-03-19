@@ -143,8 +143,8 @@ public class Seller
      * @return name dari penjual
      */
     
-    public void printDate()
+    public String toString()
     {
-        System.out.println(this.name);
+        return "Id = " + id + "\nNama = " + name + "\nPhone Number = " + phoneNumber + "\nLocation = " + getLocation().getCity();
     }
 }

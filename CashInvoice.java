@@ -1,8 +1,8 @@
 /**
- * Write a description of class CashInvoice here.
+ * Kelas untuk membentuk invoice dengan pembayaran Cash
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Ananda Rizky Duto Pamungkas
+ * @version 10 Maret 2020
  */
 
 public class CashInvoice extends Invoice
@@ -38,34 +38,21 @@ public class CashInvoice extends Invoice
     
     public void setTotalPrice()
     {
-        if(this.deliveryFee == 0)
+        if(this.deliveryFee > 0)
         {
-            this.totalPrice = getFood().getPrice();
+            this.totalPrice = getFood().getPrice() + this.deliveryFee;
         }
         
         else
         {
-            this.totalPrice = getFood().getPrice() + this.deliveryFee;
+            this.totalPrice = getFood().getPrice();
     
         }
     }
     
     public void printData()
     {
-        if(this.deliveryFee == 0)
-        {
-            System.out.println("==========INVOICE==========");
-            System.out.println("ID : " + getId());
-            System.out.println("Food : " + getFood().getName());
-            System.out.println("Date : " + getDate());
-            System.out.println("Customer : " + getCustomer().getName());
-            System.out.println("Delivery Fee : Free Delivery");
-            System.out.println("Total price : " + getTotalPrice());
-            System.out.println("Status : " + getInvoiceStatus());
-            System.out.println("Payment Type : " + getPaymentType()); 
-        }
-        
-        else
+        if(this.deliveryFee > 0)
         {
             System.out.println("==========INVOICE==========");
             System.out.println("ID : " + getId());
@@ -75,7 +62,22 @@ public class CashInvoice extends Invoice
             System.out.println("Delivery Fee : " + getDeliveryFee());
             System.out.println("Total price : " + getTotalPrice());
             System.out.println("Status : " + getInvoiceStatus());
-            System.out.println("Payment Type : " + getPaymentType());   
+            System.out.println("Payment Type : " + getPaymentType());
+            System.out.println(" ");
+        }
+        
+        else
+        {
+            System.out.println("==========INVOICE==========");
+            System.out.println("ID : " + getId());
+            System.out.println("Food : " + getFood().getName());
+            System.out.println("Date : " + getDate());
+            System.out.println("Customer : " + getCustomer().getName());
+            System.out.println("Delivery Fee : Free Delivery");
+            System.out.println("Total price : " + getTotalPrice());
+            System.out.println("Status : " + getInvoiceStatus());
+            System.out.println("Payment Type : " + getPaymentType());
+            System.out.println(" ");
         }
     }
 }

@@ -95,8 +95,8 @@ public class Location
      * @return province dari lokasi
      */
     
-    public void printData()
+    public String toString()
     {
-        System.out.println(this.province);
+        return "Province = " + province + "\nCity = " + city + "\nDescription = " + description;
     }
 }
