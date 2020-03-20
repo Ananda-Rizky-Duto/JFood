@@ -57,9 +57,9 @@ public class JFood
         */
         System.out.println("=====Modul 5=====\n");
         
-        Calendar calendar1 = new GregorianCalendar(2020, 04, 01);
+        Calendar calendar1 = new GregorianCalendar(2020, 03, 01);
         Customer customer1 = new Customer(1, "Gerald", ".geraldCihuy@gmail.com", "1234", calendar1);
-        Customer customer2 = new Customer(2, "Eben", "eben@gmail.com", "123456Ui", 2020, 04, 02);
+        Customer customer2 = new Customer(2, "Eben", "eben@gmail.com", "123456Ui", 2020, 03, 02);
         Customer customer3 = new Customer(3, "Darrell", "darrell@gmail.com", "123456Ui");
         
         System.out.println(customer1 + "\n");

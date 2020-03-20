@@ -28,6 +28,7 @@ public abstract class Invoice
         this.food = food;
         this.customer = customer;
         this.invoiceStatus = invoiceStatus;
+        date = setDate(Calendar.getInstance());
     }
 
     /*
@@ -120,14 +121,15 @@ public abstract class Invoice
      * @return date dari invoice
      */
     
-    public void setDate(Calendar date)
+    public Calendar setDate(Calendar date)
     {
-        this.date = date;
+        return date;
     }
     
-    public void setDate(int year, int month, int dayOfMonth)
+    public Calendar setDate(int year, int month, int dayOfMonth)
     {
-        this.date = new GregorianCalendar(year, month, dayOfMonth);
+        date = new GregorianCalendar(year, month, dayOfMonth);
+        return date;
     }
     
     /*
@@ -160,10 +162,7 @@ public abstract class Invoice
      * @return idFood dari invoice
      */
     
-    public String toString()
-    {
-        return "";
-    }
+    public abstract String toString();
     
         /*System.out.println("===============INVOICE===============");
         System.out.println("ID: " + this.id);

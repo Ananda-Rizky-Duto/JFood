@@ -1,6 +1,5 @@
 #BlueJ class context
 comment0.target=CashInvoice
-comment0.text=\r\n\ Kelas\ untuk\ membentuk\ invoice\ dengan\ pembayaran\ Cash\r\n\r\n\ @author\ Ananda\ Rizky\ Duto\ Pamungkas\r\n\ @version\ 10\ Maret\ 2020\r\n
 comment1.params=id\ food\ customer\ invoiceStatus
 comment1.target=CashInvoice(int,\ Food,\ Customer,\ InvoiceStatus)
 comment2.params=id\ food\ customer\ invoiceStatus\ deliveryFee

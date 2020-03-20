@@ -1,99 +1,97 @@
-     /**
-     * Write a description of class CashlessInvoice here.
-     *
-     * @author (your name)
-     * @version (a version number or a date)
-     */
+/**
+* Write a description of class CashlessInvoice here.
+*
+* @author (your name)
+* @version (a version number or a date)
+*/
     
-    import java.util.*;
-    import java.text.*;
-    import java.text.SimpleDateFormat;  
-    import java.util.Date; 
+import java.util.*;
+import java.text.*;
+import java.text.SimpleDateFormat;  
+import java.util.Date; 
     
-    public class CashlessInvoice extends Invoice
+public class CashlessInvoice extends Invoice
+{
+    private static final PaymentType PAYMENT_TYPE = PaymentType.Cashless;
+    private Promo promo;
+    
+    public CashlessInvoice(int id, Food food, Customer customer, InvoiceStatus invoiceStatus)
     {
-        private static final PaymentType PAYMENT_TYPE = PaymentType.Cashless;
-        private Promo promo;
+        super(id, food, customer, invoiceStatus);
+    }
         
-        public CashlessInvoice(int id, Food food, Customer customer, InvoiceStatus invoiceStatus)
+    public CashlessInvoice(int id, Food food, Customer customer, InvoiceStatus invoiceStatus, Promo promo)
+    {
+        super(id, food, customer, invoiceStatus);
+        this.promo = promo;
+    }
+        
+    public PaymentType getPaymentType()
+    {
+        return PAYMENT_TYPE;
+    }
+        
+    public Promo getPromo()
+    {
+        return promo;
+    }
+        
+    public void setPromo(Promo promo)
+    {
+        this.promo = promo;
+    }
+        
+    public void setTotalPrice()
+    {
+        if(promo!= null && promo.getActive() == true && getFood().getPrice() > promo.getMinPrice())
         {
-            super(id, food, customer, invoiceStatus);
+            this.totalPrice = getFood().getPrice() - promo.getDiscount();
         }
-        
-        public CashlessInvoice(int id, Food food, Customer customer, InvoiceStatus invoiceStatus, Promo promo)
-        {
-            super(id, food, customer, invoiceStatus);
-            this.promo = promo;
-        }
-        
-        public PaymentType getPaymentType()
-        {
-            return PAYMENT_TYPE;
-        }
-        
-        public Promo getPromo()
-        {
-            return promo;
-        }
-        
-        public void setPromo(Promo promo)
-        {
-            this.promo = promo;
-        }
-        
-        public void setTotalPrice()
-        {
-            if(promo!= null && promo.getActive() == true && getFood().getPrice() > promo.getMinPrice())
-            {
-                this.totalPrice = getFood().getPrice() - promo.getDiscount();
-            }
             
-            else
-            {
-                this.totalPrice = getFood().getPrice();
-            }
-        }
-        
-        public void printData()
+        else
         {
-            SimpleDateFormat format = new SimpleDateFormat("dd MMMM yyyy");
-            Date date = new Date();
-            if(promo != null)
+            this.totalPrice = getFood().getPrice();
+        }
+    }
+        
+    public String toString()
+    {
+        SimpleDateFormat format = new SimpleDateFormat("dd MMMM yyyy");
+        Date date = new Date();
+        if(promo != null)
+        {
+            
+            if(promo.getActive() == true && getFood().getPrice() >= promo.getMinPrice())
             {
-                
-                if(promo.getActive() == true && getFood().getPrice() >= promo.getMinPrice())
-                {
-                    return "==========INVOICE==========\n\n" +
-                           "ID : " + getId() +
-                           "Food : " + getFood().getName() +
-                           "Date : " + format.format(date) +
-                           "Customer : " + getCustomer().getName() +
-                           "Total price : " + getTotalPrice() +
-                           "Status : " + getInvoiceStatus() +
-                           "Payment Type : " + getPaymentType() +
-                           "\n" +
-                           "PROMO" +
-                           "ID : " + promo.getId() +
-                           "Code : " + promo.getCode() +
-                           "Discount : " + promo.getDiscount() +
-                           "Minimum Price : " + promo.getMinPrice() +
-                           "Status : " + promo.getActive() +
-                           "\n";
+                return "==========INVOICE==========\n\n" +
+                       "ID : " + getId() +
+                       "\nFood : " + getFood().getName() +
+                       "\nDate : " + format.format(getDate().getTime()) +
+                       "\nCustomer : " + getCustomer().getName() +
+                       "\nTotal price : " + getTotalPrice() +
+                       "\nStatus : " + getInvoiceStatus() +
+                       "\nPayment Type : " + getPaymentType() +
+                       "\n" +
+                       "\n==PROMO==\n" +
+                       "\nCode : " + promo.getCode() +
+                       "\nDiscount : " + promo.getDiscount() +
+                       "\nMinimum Price : " + promo.getMinPrice() +
+                       "\n";
             }
             
             else
             {
                 return "==========INVOICE==========\n\n" +
                        "ID : " + getId() +
-                       "Food : " + getFood().getName() +
-                       "Date : " + format.format(date) +
-                       "Customer : " + getCustomer().getName() +
-                       "Total price : " + getTotalPrice() +
-                       "Status : " + getInvoiceStatus() +
-                       "Payment Type : " + getPaymentType() +
+                       "\nFood : " + getFood().getName() +
+                       "\nDate : " + format.format(getDate().getTime()) +
+                       "\nCustomer : " + getCustomer().getName() +
+                       "\nTotal price : " + getTotalPrice() +
+                       "\nStatus : " + getInvoiceStatus() +
+                       "\nPayment Type : " + getPaymentType() +
                        "\n" +
                        "PROMO" +
-                       "Promo tidak berlaku" +
+                       "\nPromo tidak berlaku" +
                        "\n";
             }
         }
@@ -102,12 +100,12 @@
         {
             return "==========INVOICE==========\n\n" +
                    "ID : " + getId() +
-                   "Food : " + getFood().getName() +
-                   "Date : " + format.format(date) +
-                   "Customer : " + getCustomer().getName() +
-                   "Total price : " + getTotalPrice() +
-                   "Status : " + getInvoiceStatus() +
-                   "Payment Type : " + getPaymentType() +
+                   "\nFood : " + getFood().getName() +
+                   "\nDate : " + format.format(getDate().getTime()) +
+                   "\nCustomer : " + getCustomer().getName() +
+                   "\nTotal price : " + getTotalPrice() +
+                   "\nStatus : " + getInvoiceStatus() +
+                   "\nPayment Type : " + getPaymentType() +
                    "\n";
         }
     }

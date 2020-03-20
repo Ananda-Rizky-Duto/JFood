@@ -5,6 +5,11 @@
  * @version 10 Maret 2020
  */
 
+import java.util.*;
+import java.text.*;
+import java.text.SimpleDateFormat;  
+import java.util.Date; 
+
 public class CashInvoice extends Invoice
 {
     private static final PaymentType PAYMENT_TYPE = PaymentType.Cash;
@@ -52,32 +57,34 @@ public class CashInvoice extends Invoice
     
     public String toString()
     {
+        SimpleDateFormat format = new SimpleDateFormat("dd MMMM yyyy");
+        Date date = new Date();
         if(this.deliveryFee > 0)
         {
             return "==========INVOICE==========\n\n" +
                    "ID : " + getId() +
-                   "Food : " + getFood().getName() +
-                   "Date : " + getDate() +
-                   "Customer : " + getCustomer().getName() +
-                   "Delivery Fee : " + getDeliveryFee() +
-                   "Total price : " + getTotalPrice() +
-                   "Status : " + getInvoiceStatus() +
-                   "Payment Type : " + getPaymentType() +
-                   " ";
+                   "\nFood : " + getFood().getName() +
+                   "\nDate : " + format.format(getDate().getTime()) +
+                   "\nCustomer : " + getCustomer().getName() +
+                   "\nDelivery Fee : " + getDeliveryFee() +
+                   "\nTotal price : " + getTotalPrice() +
+                   "\nStatus : " + getInvoiceStatus() +
+                   "\nPayment Type : " + getPaymentType() +
+                   "\n";
         }
         
         else
         {
             return "==========INVOICE==========\n\n" +
                    "ID : " + getId() +
-                   "Food : " + getFood().getName() +
-                   "Date : " + getDate() +
-                   "Customer : " + getCustomer().getName() +
-                   "Delivery Fee : Free Delivery" +
-                   "Total price : " + getTotalPrice() +
-                   "Status : " + getInvoiceStatus() +
-                   "Payment Type : " + getPaymentType() +
-                   " ";
+                   "\nFood : " + getFood().getName() +
+                   "\nDate : " + format.format(getDate().getTime()) +
+                   "\nCustomer : " + getCustomer().getName() +
+                   "\nDelivery Fee : Free Delivery" +
+                   "\nTotal price : " + getTotalPrice() +
+                   "\nStatus : " + getInvoiceStatus() +
+                   "\nPayment Type : " + getPaymentType() +
+                   "\n";
         }
     }
 }
