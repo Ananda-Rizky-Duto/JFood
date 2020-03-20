@@ -69,5 +69,7 @@ public class JFood
         customer1.setEmail("gerald@gmail.com");
         customer1.setPassword("123456Ui");
         System.out.println(customer1 + "\n");
+        
+        System.out.println("=====Post Test Modul 5=====\n");
     }
 }

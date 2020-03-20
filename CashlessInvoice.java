@@ -4,20 +4,20 @@
      * @author (your name)
      * @version (a version number or a date)
      */
-    
+
     public class CashlessInvoice extends Invoice
     {
         private static final PaymentType PAYMENT_TYPE = PaymentType.Cashless;
         private Promo promo;
         
-        public CashlessInvoice(int id, Food food, String date, Customer customer, InvoiceStatus invoiceStatus)
+        public CashlessInvoice(int id, Food food, Customer customer, InvoiceStatus invoiceStatus)
         {
-            super(id, food, date, customer, invoiceStatus);
+            super(id, food, customer, invoiceStatus);
         }
         
-        public CashlessInvoice(int id, Food food, String date, Customer customer, InvoiceStatus invoiceStatus, Promo promo)
+        public CashlessInvoice(int id, Food food, Customer customer, InvoiceStatus invoiceStatus, Promo promo)
         {
-            super(id, food, date, customer, invoiceStatus);
+            super(id, food, customer, invoiceStatus);
             this.promo = promo;
         }
         
@@ -56,52 +56,52 @@
                 
                 if(promo.getActive() == true && getFood().getPrice() >= promo.getMinPrice())
                 {
-                    System.out.println("==========INVOICE==========");
-                    System.out.println("ID : " + getId());
-                    System.out.println("Food : " + getFood().getName());
-                    System.out.println("Date : " + getDate());
-                    System.out.println("Customer : " + getCustomer().getName());
-                    System.out.println("Total price : " + getTotalPrice());
-                    System.out.println("Status : " + getInvoiceStatus());
-                    System.out.println("Payment Type : " + getPaymentType());
-                    System.out.println("");
-                    System.out.println("PROMO");
-                    System.out.println("ID : " + promo.getId());
-                    System.out.println("Code : " + promo.getCode());
-                    System.out.println("Discount : " + promo.getDiscount());
-                    System.out.println("Minimum Price : " + promo.getMinPrice());
-                    System.out.println("Status : " + promo.getActive());
-                    System.out.println("");
+                    return "==========INVOICE==========" +
+                           "ID : " + getId() +
+                           "Food : " + getFood().getName() +
+                           "Date : " + getDate() +
+                           "Customer : " + getCustomer().getName() +
+                           "Total price : " + getTotalPrice() +
+                           "Status : " + getInvoiceStatus() +
+                           "Payment Type : " + getPaymentType() +
+                           "\n" +
+                           "PROMO" +
+                           "ID : " + promo.getId() +
+                           "Code : " + promo.getCode() +
+                           "Discount : " + promo.getDiscount() +
+                           "Minimum Price : " + promo.getMinPrice() +
+                           "Status : " + promo.getActive() +
+                           "\n";
             }
             
             else
             {
-                System.out.println("==========INVOICE==========");
-                System.out.println("ID : " + getId());
-                System.out.println("Food : " + getFood().getName());
-                System.out.println("Date : " + getDate());
-                System.out.println("Customer : " + getCustomer().getName());
-                System.out.println("Total price : " + getTotalPrice());
-                System.out.println("Status : " + getInvoiceStatus());
-                System.out.println("Payment Type : " + getPaymentType());
-                System.out.println("");
-                System.out.println("PROMO");
-                System.out.println("Promo tidak berlaku");
-                System.out.println("");
+                return "==========INVOICE==========" +
+                           "ID : " + getId() +
+                           "Food : " + getFood().getName() +
+                           "Date : " + getDate() +
+                           "Customer : " + getCustomer().getName() +
+                           "Total price : " + getTotalPrice() +
+                           "Status : " + getInvoiceStatus() +
+                           "Payment Type : " + getPaymentType() +
+                           "\n" +
+                           "PROMO" +
+                           "Promo tidak berlaku" +
+                           "\n";
             }
         }
         
         else
         {
-            System.out.println("==========INVOICE==========");
-            System.out.println("ID : " + getId());
-            System.out.println("Food : " + getFood().getName());
-            System.out.println("Date : " + getDate());
-            System.out.println("Customer : " + getCustomer().getName());
-            System.out.println("Total price : " + getTotalPrice());
-            System.out.println("Status : " + getInvoiceStatus());
-            System.out.println("Payment Type : " + getPaymentType());
-            System.out.println("");
+            return "==========INVOICE==========" +
+                   "ID : " + getId() +
+                   "Food : " + getFood().getName() +
+                   "Date : " + getDate() +
+                   "Customer : " + getCustomer().getName() +
+                   "Total price : " + getTotalPrice() +
+                   "Status : " + getInvoiceStatus() +
+                   "Payment Type : " + getPaymentType() +
+                   "\n";
         }
     }
 }

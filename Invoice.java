@@ -6,11 +6,14 @@
  * 
  */
 
+import java.util.*;
+import java.text.*;
+
 public abstract class Invoice
 {
     private int id;
     private Food food;
-    private String date;
+    private Calendar date;
     protected int totalPrice;
     private Customer customer;
     private InvoiceStatus invoiceStatus;
@@ -19,11 +22,10 @@ public abstract class Invoice
      * Metode untuk melakukan referensi dari suatu objek private pada kelas
      */
     
-    public Invoice(int id, Food food, String date, Customer customer, InvoiceStatus invoiceStatus)
+    public Invoice(int id, Food food, Customer customer, InvoiceStatus invoiceStatus)
     {
         this.id = id;
         this.food = food;
-        this.date = date;
         this.customer = customer;
         this.invoiceStatus = invoiceStatus;
     }
@@ -56,7 +58,7 @@ public abstract class Invoice
      * @return date dari invoice
      */
     
-    public String getDate()
+    public Calendar getDate()
     {
         return date;
     }
@@ -118,9 +120,14 @@ public abstract class Invoice
      * @return date dari invoice
      */
     
-    public void setDate(String date)
+    public void setDate(Calendar date)
     {
         this.date = date;
+    }
+    
+    public void setDate(int year, int month, int dayOfMonth)
+    {
+        this.date = new GregorianCalendar(year, month, dayOfMonth);
     }
     
     /*
@@ -153,7 +160,10 @@ public abstract class Invoice
      * @return idFood dari invoice
      */
     
-    public abstract void printData();
+    public String toString()
+    {
+        return "";
+    }
     
         /*System.out.println("===============INVOICE===============");
         System.out.println("ID: " + this.id);

@@ -9,6 +9,8 @@
 import java.util.*;
 import java.text.*;
 import java.util.regex.*;
+import java.text.SimpleDateFormat;  
+import java.util.Date; 
 
 public class Customer
 {
@@ -204,7 +206,7 @@ public class Customer
     public String toString()
     {
         SimpleDateFormat format = new SimpleDateFormat("dd MMMM yyyy");
-        //String months[] = {"","Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
+        Date date = new Date();
         if(joinDate != null)
         {
             return "Id = " + id + 
@@ -220,7 +222,8 @@ public class Customer
                    "\nNama = " + name + 
                    "\nEmail = " + email + 
                    "\nPassword = " + password + 
-                   "\nJoin Date : " + joinDate;
+                   "\nJoin Date : " + joinDate +
+                   "\nJoin Date : " + format.format(date);
         }
     }
 }
