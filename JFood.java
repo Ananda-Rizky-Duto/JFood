@@ -71,5 +71,13 @@ public class JFood
         System.out.println(customer1 + "\n");
         
         System.out.println("=====Post Test Modul 5=====\n");
+        CashlessInvoice cashlessInvoice1 = new CashlessInvoice(1, food2, customer1, InvoiceStatus.Ongoing, promo1);
+        CashInvoice cashInvoice1 = new CashInvoice(1, food1, customer1, InvoiceStatus.Finished, 4000); 
+        
+        cashlessInvoice1.setTotalPrice();
+        cashInvoice1.setTotalPrice();
+        
+        System.out.println(cashlessInvoice1 + "\n");
+        System.out.println(cashInvoice1 + "\n");
     }
 }

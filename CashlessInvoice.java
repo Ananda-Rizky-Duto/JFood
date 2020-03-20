@@ -4,7 +4,12 @@
      * @author (your name)
      * @version (a version number or a date)
      */
-
+    
+    import java.util.*;
+    import java.text.*;
+    import java.text.SimpleDateFormat;  
+    import java.util.Date; 
+    
     public class CashlessInvoice extends Invoice
     {
         private static final PaymentType PAYMENT_TYPE = PaymentType.Cashless;
@@ -51,15 +56,17 @@
         
         public void printData()
         {
+            SimpleDateFormat format = new SimpleDateFormat("dd MMMM yyyy");
+            Date date = new Date();
             if(promo != null)
             {
                 
                 if(promo.getActive() == true && getFood().getPrice() >= promo.getMinPrice())
                 {
-                    return "==========INVOICE==========" +
+                    return "==========INVOICE==========\n\n" +
                            "ID : " + getId() +
                            "Food : " + getFood().getName() +
-                           "Date : " + getDate() +
+                           "Date : " + format.format(date) +
                            "Customer : " + getCustomer().getName() +
                            "Total price : " + getTotalPrice() +
                            "Status : " + getInvoiceStatus() +
@@ -76,27 +83,27 @@
             
             else
             {
-                return "==========INVOICE==========" +
-                           "ID : " + getId() +
-                           "Food : " + getFood().getName() +
-                           "Date : " + getDate() +
-                           "Customer : " + getCustomer().getName() +
-                           "Total price : " + getTotalPrice() +
-                           "Status : " + getInvoiceStatus() +
-                           "Payment Type : " + getPaymentType() +
-                           "\n" +
-                           "PROMO" +
-                           "Promo tidak berlaku" +
-                           "\n";
+                return "==========INVOICE==========\n\n" +
+                       "ID : " + getId() +
+                       "Food : " + getFood().getName() +
+                       "Date : " + format.format(date) +
+                       "Customer : " + getCustomer().getName() +
+                       "Total price : " + getTotalPrice() +
+                       "Status : " + getInvoiceStatus() +
+                       "Payment Type : " + getPaymentType() +
+                       "\n" +
+                       "PROMO" +
+                       "Promo tidak berlaku" +
+                       "\n";
             }
         }
         
         else
         {
-            return "==========INVOICE==========" +
+            return "==========INVOICE==========\n\n" +
                    "ID : " + getId() +
                    "Food : " + getFood().getName() +
-                   "Date : " + getDate() +
+                   "Date : " + format.format(date) +
                    "Customer : " + getCustomer().getName() +
                    "Total price : " + getTotalPrice() +
                    "Status : " + getInvoiceStatus() +
