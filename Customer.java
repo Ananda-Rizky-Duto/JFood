@@ -7,8 +7,8 @@
  */
 
 import java.util.*;
-import java.util.regex.*;
 import java.text.*;
+import java.util.regex.*;
 
 public class Customer
 {
@@ -203,17 +203,24 @@ public class Customer
         
     public String toString()
     {
-        
         SimpleDateFormat format = new SimpleDateFormat("dd MMMM yyyy");
-        String months[] = {"","Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
+        //String months[] = {"","Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
         if(joinDate != null)
         {
-            return "Id = " + id + "\nNama = " + name + "\nEmail = " + email + "\nPassword = " + password + "\nJoin Date : " +  joinDate.get(Calendar.DATE)+" "+months[joinDate.get(Calendar.MONTH)]+" "+joinDate.get(Calendar.YEAR);
+            return "Id = " + id + 
+                   "\nNama = " + name + 
+                   "\nEmail = " + email + 
+                   "\nPassword = " + password + 
+                   "\nJoin Date : " + format.format(getJoinDate().getTime());
         }
         
         else
         {
-            return "Id = " + id + "\nNama = " + name + "\nEmail = " + email + "\nPassword = " + password + "\nJoin Date : " + joinDate;
+            return "Id = " + id + 
+                   "\nNama = " + name + 
+                   "\nEmail = " + email + 
+                   "\nPassword = " + password + 
+                   "\nJoin Date : " + joinDate;
         }
     }
 }

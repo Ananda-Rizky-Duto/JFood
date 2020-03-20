@@ -145,6 +145,9 @@ public class Seller
     
     public String toString()
     {
-        return "Id = " + id + "\nNama = " + name + "\nPhone Number = " + phoneNumber + "\nLocation = " + getLocation().getCity();
+        return "Id = " + id + 
+               "\nNama = " + name + 
+               "\nPhone Number = " + phoneNumber + 
+               "\nLocation = " + getLocation().getCity();
     }
 }
