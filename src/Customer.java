@@ -210,7 +210,7 @@ public class Customer
         Date date = new Date();
         if(joinDate != null)
         {
-            return "Id = " + id + 
+            return "\n\nId = " + id +
                    "\nNama = " + name + 
                    "\nEmail = " + email + 
                    "\nPassword = " + password + 
@@ -219,7 +219,7 @@ public class Customer
         
         else
         {
-            return "Id = " + id + 
+            return "\n\nId = " + id +
                    "\nNama = " + name + 
                    "\nEmail = " + email + 
                    "\nPassword = " + password + 

@@ -15,14 +15,14 @@ public class CashInvoice extends Invoice
     private static final PaymentType PAYMENT_TYPE = PaymentType.Cash;
     private int deliveryFee;
     
-    public CashInvoice(int id, Food food, Customer customer, InvoiceStatus invoiceStatus)
+    public CashInvoice(int id, ArrayList<Food> foods, Customer customer)
     {
-        super(id, food, customer, invoiceStatus);
+        super(id, foods, customer);
     }
     
-    public CashInvoice(int id, Food food, Customer customer, InvoiceStatus invoiceStatus, int deliveryFee)
+    public CashInvoice(int id, ArrayList<Food> foods, Customer customer, int deliveryFee)
     {
-        super(id, food, customer, invoiceStatus);
+        super(id, foods, customer);
         this.deliveryFee = deliveryFee;
     }
     
@@ -43,14 +43,23 @@ public class CashInvoice extends Invoice
     
     public void setTotalPrice()
     {
+        int n;
         if(this.deliveryFee > 0)
         {
-            this.totalPrice = getFood().getPrice() + this.deliveryFee;
+            for(n = 0; n < getFoods().size(); n++)
+            {
+                this.totalPrice += getFoods().get(n).getPrice();
+            }
+
+            this.totalPrice += this.deliveryFee;
         }
         
         else
         {
-            this.totalPrice = getFood().getPrice();
+            for(n = 0; n < getFoods().size(); n++)
+            {
+                this.totalPrice += getFoods().get(n).getPrice();
+            }
     
         }
     }
@@ -58,11 +67,18 @@ public class CashInvoice extends Invoice
     public String toString()
     {
         SimpleDateFormat sdf = new SimpleDateFormat("dd MMMM yyyy");
+        String foods = "";
+        for (Food foodList : getFoods())
+        {
+            foods = foods + foodList.getName() + ", ";
+        }
+        foods = foods.substring(0, foods.length()-2);
+
         if(this.deliveryFee > 0)
         {
             return "==========INVOICE==========\n\n" +
                    "ID : " + getId() +
-                   "\nFood : " + getFood().getName() +
+                   "\nFood : " + foods +
                    "\nDate : " + sdf.format(super.getDate().getTime()) +
                    "\nCustomer : " + getCustomer().getName() +
                    "\nDelivery Fee : " + getDeliveryFee() +
@@ -76,7 +92,7 @@ public class CashInvoice extends Invoice
         {
             return "==========INVOICE==========\n\n" +
                    "ID : " + getId() +
-                   "\nFood : " + getFood().getName() +
+                   "\nFood : " + foods +
                    "\nDate : " + sdf.format(super.getDate().getTime()) +
                    "\nCustomer : " + getCustomer().getName() +
                    "\nDelivery Fee : Free Delivery" +

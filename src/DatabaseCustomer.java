@@ -5,28 +5,51 @@
  * @version 5 Maret 2020
  * 
  */
+import java.util.*;
 
 public class DatabaseCustomer
 {
-    private static String[] listCustomer;
-    
-    public static boolean addCustomer(Customer customer)
+    private static final ArrayList<Customer> CUSTOMER_DATABASE = new ArrayList<Customer>();
+    private static int lastId = 0;
+
+    public static ArrayList<Customer> getCustomerDatabase()
     {
-        return false;
+        return CUSTOMER_DATABASE;
     }
-    
-    public static boolean removeCustomer(Customer customer)
+
+    public static int getLastId()
     {
-        return false;
+        return lastId;
     }
-    
-    public static Customer getCustomer()
+
+    public static Customer getCustomerById(int id)
     {
+        for(Customer customer : CUSTOMER_DATABASE)
+        {
+            if(customer.getId() == id)
+            {
+                return customer;
+            }
+        }
         return null;
     }
-    
-    public static String[] getListCustomer()
+
+    public static boolean addCustomer(Customer customer)
     {
-        return listCustomer;
+        CUSTOMER_DATABASE.add(customer);
+        lastId = customer.getId() + 1;
+        return true;
+    }
+
+    public static boolean removeCustomer(int id)
+    {
+        for(Customer customer : CUSTOMER_DATABASE)
+        {
+            if(customer.getId() == id)
+            {
+                CUSTOMER_DATABASE.remove(customer);
+            }
+        }
+        return false;
     }
 }

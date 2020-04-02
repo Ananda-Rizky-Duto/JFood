@@ -12,22 +12,22 @@ import java.text.*;
 public abstract class Invoice
 {
     private int id;
-    private Food food;
+    private ArrayList<Food> foods;
     private Calendar date;
     protected int totalPrice;
     private Customer customer;
     private InvoiceStatus invoiceStatus;
+    private static final InvoiceStatus INVOICE_STATUS = InvoiceStatus.Ongoing;
 
     /*
      * Metode untuk melakukan referensi dari suatu objek private pada kelas
      */
     
-    public Invoice(int id, Food food, Customer customer, InvoiceStatus invoiceStatus)
+    public Invoice(int id, ArrayList<Food> foods, Customer customer)
     {
         this.id = id;
-        this.food = food;
+        ArrayList<Food> Foods = new ArrayList<Food>();
         this.customer = customer;
-        this.invoiceStatus = invoiceStatus;
         date = setDate(Calendar.getInstance());
     }
 
@@ -48,9 +48,9 @@ public abstract class Invoice
      * @return idFood dari invoice
      */
     
-    public Food getFood()
+    public ArrayList<Food> getFoods()
     {
-        return food;
+        return foods;
     }
     
     /*
@@ -110,9 +110,9 @@ public abstract class Invoice
      * @return idFood dari invoice
      */
     
-    public void setFoods(Food food)
+    public void setFoods(ArrayList<Food> foods)
     {
-        this.food = food;
+        this.foods = foods;
     }
     
     /*

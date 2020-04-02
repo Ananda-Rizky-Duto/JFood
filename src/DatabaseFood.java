@@ -5,52 +5,83 @@
  * @version 5 Maret 2020
  * 
  */
+import java.util.*;
 
 public class DatabaseFood
 {
-    private static String[] listFood;
+    private static final ArrayList<Food> FOOD_DATABASE = new ArrayList<Food>();
+    private static int lastId = 0;
     
     /*
      * Metode untuk menambahkan makanan pada JFood
      * 
      * @return sementara false
      */
-    
-    public static boolean addFood(Food food)
+
+    public static ArrayList<Food> getFoodDatabase()
     {
-        return false;
+        return FOOD_DATABASE;
     }
-    
-    /*
-     * Metode untuk menghapus makanan pada JFood
-     * 
-     * @return sementara false
-     */
-    
-    public static boolean removeFood(Food food)
+
+    public static int getLastId()
     {
-        return false;
+        return lastId;
     }
-    
-    /*
-     * Metode untuk mendapatkan makanan pada JFood
-     * 
-     * @return sementara null
-     */
-    
-    public static Food getFood()
+
+    public static Food getFoodById(int id)
     {
+        for(Food food : FOOD_DATABASE)
+        {
+            if(food.getId() == id)
+            {
+                return food;
+            }
+        }
         return null;
     }
-    
-    /*
-     * Metode untuk mendapatkan daftar makanan pada JFood
-     * 
-     * @return listFood dari database
-     */
-    
-    public static String[] getListFood()
+
+    public static ArrayList<Food> getFoodBySeller(int sellerId)
     {
-        return listFood;
+        ArrayList<Food> foodList = new ArrayList<Food>();
+        for(Food food : FOOD_DATABASE)
+        {
+            if(food.getSeller().getId() == sellerId)
+            {
+                foodList.add(food);
+            }
+        }
+        return foodList;
+    }
+
+    public static ArrayList<Food> getFoodByCategory(FoodCategory category)
+    {
+        ArrayList<Food> foodList = new ArrayList<Food>();
+        for(Food food : FOOD_DATABASE)
+        {
+            if(food.getCategory().equals(category))
+            {
+                foodList.add(food);
+            }
+        }
+        return foodList;
+    }
+
+    public static boolean addFood(Food food)
+    {
+        FOOD_DATABASE.add(food);
+        lastId = food.getId() + 1;
+        return true;
+    }
+
+    public static boolean removeFood(int id)
+    {
+        for(Food food : FOOD_DATABASE)
+        {
+            if(food.getId() == id)
+            {
+                FOOD_DATABASE.remove(food);
+            }
+        }
+        return false;
     }
 }

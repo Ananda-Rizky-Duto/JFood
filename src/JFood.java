@@ -25,10 +25,10 @@ public class JFood
     public static void main(String[] args)
     {
         Location location1 = new Location("Jakarta Timur", "DKI Jakarta", "Cipayung");
-        Seller seller1 = new Seller(1, "Milo", "milo@gmail.com", "098765432112", location1);
-        Food food1 = new Food(1, "Sushi", seller1, 3000, FoodCategory.Japanese);
-        Food food2 = new Food(2, "Sashimi", seller1, 7000, FoodCategory.Japanese);
-        Food food3 = new Food(3, "Ramen", seller1, 15000, FoodCategory.Japanese);
+        //Seller seller1 = new Seller(1, "Milo", "milo@gmail.com", "098765432112", location1);
+        //Food food1 = new Food(1, "Sushi", seller1, 3000, FoodCategory.Japanese);
+        //Food food2 = new Food(2, "Sashimi", seller1, 7000, FoodCategory.Japanese);
+        //Food food3 = new Food(3, "Bolognese", seller1, 15000, FoodCategory.Western);
         //Customer customer1 = new Customer(1, "Bayu", "bayu@gmail.com", "12345678", "240220");
         Promo promo1 = new Promo(1, "aselole", 2000, 5000, true);
         /*
@@ -55,6 +55,8 @@ public class JFood
         cashInvoice1.printData();
         cashInvoice2.printData();
         */
+
+        /*
         System.out.println("=====Modul 5=====\n");
         
         Calendar calendar1 = new GregorianCalendar(2020, 03, 01);
@@ -79,5 +81,21 @@ public class JFood
         
         System.out.println(cashlessInvoice1 + "\n");
         System.out.println(cashInvoice1 + "\n");
+         */
+
+        System.out.println("=====Modul 6=====\n");
+        DatabaseSeller.addSeller(new Seller(DatabaseSeller.getLastId(), "Milo", "milo@gmail.com", "098765432112", location1));
+        DatabaseCustomer.addCustomer(new Customer(DatabaseCustomer.getLastId(), "Duto", "duto@gmail.com", "123456Ua", 2020, 3, 2));
+        DatabaseCustomer.addCustomer(new Customer(DatabaseCustomer.getLastId(), "Duto", "duto@gmail.com", "123456Ui", 2020, 3, 3));
+        DatabaseCustomer.addCustomer(new Customer(DatabaseCustomer.getLastId(), "Alwi", "alwi@gmail.com", "123456Ue", 2020, 3, 4));
+        System.out.println("\nCustomer\n");
+        System.out.println(DatabaseCustomer.getCustomerDatabase() + "\n");
+        DatabaseFood.addFood(new Food(DatabaseFood.getLastId(), "Sushi", DatabaseSeller.getSellerById(0), 3000, FoodCategory.Japanese));
+        DatabaseFood.addFood(new Food(DatabaseFood.getLastId(), "Sashimi", DatabaseSeller.getSellerById(0), 7000, FoodCategory.Japanese));
+        DatabaseFood.addFood(new Food(DatabaseFood.getLastId(), "Bolognese", DatabaseSeller.getSellerById(0), 15000, FoodCategory.Western));
+        System.out.println("\nWestern Food\n");
+        System.out.println(DatabaseFood.getFoodByCategory(FoodCategory.Western) + "\n");
+        System.out.println("\nJapanese Food\n");
+        System.out.println(DatabaseFood.getFoodByCategory(FoodCategory.Japanese) + "\n");
     }
 }

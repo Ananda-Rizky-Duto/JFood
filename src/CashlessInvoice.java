@@ -15,14 +15,14 @@ public class CashlessInvoice extends Invoice
     private static final PaymentType PAYMENT_TYPE = PaymentType.Cashless;
     private Promo promo;
     
-    public CashlessInvoice(int id, Food food, Customer customer, InvoiceStatus invoiceStatus)
+    public CashlessInvoice(int id, ArrayList<Food> foods, Customer customer)
     {
-        super(id, food, customer, invoiceStatus);
+        super(id, foods, customer);
     }
         
-    public CashlessInvoice(int id, Food food, Customer customer, InvoiceStatus invoiceStatus, Promo promo)
+    public CashlessInvoice(int id, ArrayList<Food> foods, Customer customer, Promo promo)
     {
-        super(id, food, customer, invoiceStatus);
+        super(id, foods, customer);
         this.promo = promo;
     }
         
@@ -43,27 +43,39 @@ public class CashlessInvoice extends Invoice
         
     public void setTotalPrice()
     {
-        if(promo!= null && promo.getActive() == true && getFood().getPrice() > promo.getMinPrice())
+        int n;
+        for(n = 0; n < getFoods().size(); n++)
         {
-            this.totalPrice = getFood().getPrice() - promo.getDiscount();
-        }
+            if (promo != null && promo.getActive() == true && getFoods().get(n).getPrice() > promo.getMinPrice())
+            {
+                this.totalPrice = getFoods().get(n).getPrice() - promo.getDiscount();
+            }
             
-        else
-        {
-            this.totalPrice = getFood().getPrice();
+            else
+            {
+                this.totalPrice = getFoods().get(n).getPrice();
+            }
         }
     }
         
     public String toString()
     {
         SimpleDateFormat sdf = new SimpleDateFormat("dd MMMM yyyy");
+        String foods = "";
+        for (Food foodList : getFoods())
+        {
+            foods = foods + foodList.getName() + ", ";
+        }
+        foods = foods.substring(0, foods.length()-2);
+        int n = 0;
+
         if(promo != null)
         { 
-            if(promo.getActive() == true && getFood().getPrice() >= promo.getMinPrice())
+            if(promo.getActive() == true && getFoods().get(n).getPrice() >= promo.getMinPrice())
             {
                 return "==========INVOICE==========\n\n" +
                        "ID : " + getId() +
-                       "\nFood : " + getFood().getName() +
+                       "\nFood : " + foods +
                        "\nDate : " + sdf.format(super.getDate().getTime()) +
                        "\nCustomer : " + getCustomer().getName() +
                        "\nTotal price : " + getTotalPrice() +
@@ -81,7 +93,7 @@ public class CashlessInvoice extends Invoice
             {
                 return "==========INVOICE==========\n\n" +
                        "ID : " + getId() +
-                       "\nFood : " + getFood().getName() +
+                       "\nFood : " + foods +
                        "\nDate : " + sdf.format(super.getDate().getTime()) +
                        "\nCustomer : " + getCustomer().getName() +
                        "\nTotal price : " + getTotalPrice() +
@@ -98,7 +110,7 @@ public class CashlessInvoice extends Invoice
         {
             return "==========INVOICE==========\n\n" +
                    "ID : " + getId() +
-                   "\nFood : " + getFood().getName() +
+                   "\nFood : " + foods +
                    "\nDate : " + sdf.format(super.getDate().getTime()) +
                    "\nCustomer : " + getCustomer().getName() +
                    "\nTotal price : " + getTotalPrice() +
