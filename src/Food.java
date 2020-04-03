@@ -145,7 +145,7 @@ public class Food
     
     public String toString()
     {
-        return "\n\nId = " + id +
+        return "Id = " + id +
                "\nNama = " + name + 
                "\nSeller = " + getSeller().getName() + 
                "\nCity = " + getSeller().getLocation().getCity() + 

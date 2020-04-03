@@ -6,10 +6,6 @@
  * 
  */
 
-import java.util.*;
-import java.text.*;
-import java.util.regex.*;
-
 public class JFood
 {
     Location location;
@@ -84,18 +80,27 @@ public class JFood
          */
 
         System.out.println("=====Modul 6=====\n");
-        DatabaseSeller.addSeller(new Seller(DatabaseSeller.getLastId(), "Milo", "milo@gmail.com", "098765432112", location1));
-        DatabaseCustomer.addCustomer(new Customer(DatabaseCustomer.getLastId(), "Duto", "duto@gmail.com", "123456Ua", 2020, 3, 2));
-        DatabaseCustomer.addCustomer(new Customer(DatabaseCustomer.getLastId(), "Duto", "duto@gmail.com", "123456Ui", 2020, 3, 3));
-        DatabaseCustomer.addCustomer(new Customer(DatabaseCustomer.getLastId(), "Alwi", "alwi@gmail.com", "123456Ue", 2020, 3, 4));
-        System.out.println("\nCustomer\n");
-        System.out.println(DatabaseCustomer.getCustomerDatabase() + "\n");
-        DatabaseFood.addFood(new Food(DatabaseFood.getLastId(), "Sushi", DatabaseSeller.getSellerById(0), 3000, FoodCategory.Japanese));
-        DatabaseFood.addFood(new Food(DatabaseFood.getLastId(), "Sashimi", DatabaseSeller.getSellerById(0), 7000, FoodCategory.Japanese));
-        DatabaseFood.addFood(new Food(DatabaseFood.getLastId(), "Bolognese", DatabaseSeller.getSellerById(0), 15000, FoodCategory.Western));
-        System.out.println("\nWestern Food\n");
-        System.out.println(DatabaseFood.getFoodByCategory(FoodCategory.Western) + "\n");
-        System.out.println("\nJapanese Food\n");
-        System.out.println(DatabaseFood.getFoodByCategory(FoodCategory.Japanese) + "\n");
+        DatabaseSeller.addSeller(new Seller(DatabaseSeller.getLastId() + 1, "Milo", "milo@gmail.com", "098765432112", location1));
+        DatabaseCustomer.addCustomer(new Customer(DatabaseCustomer.getLastId() + 1, "Duto", "duto@gmail.com", "123456Ua", 2020, 3, 2));
+        DatabaseCustomer.addCustomer(new Customer(DatabaseCustomer.getLastId() + 1, "Duto", "duto@gmail.com", "123456Ui", 2020, 3, 3));
+        DatabaseCustomer.addCustomer(new Customer(DatabaseCustomer.getLastId() + 1, "Alwi", "alwi@gmail.com", "123456Ue", 2020, 3, 4));
+        System.out.println("Customer");
+        for(Customer customer : DatabaseCustomer.getCustomerDatabase())
+        {
+            System.out.println(customer);
+        }
+        DatabaseFood.addFood(new Food(DatabaseFood.getLastId() + 1, "Sushi", DatabaseSeller.getSellerById(1), 3000, FoodCategory.Japanese));
+        DatabaseFood.addFood(new Food(DatabaseFood.getLastId() + 1, "Sashimi", DatabaseSeller.getSellerById(1), 7000, FoodCategory.Japanese));
+        DatabaseFood.addFood(new Food(DatabaseFood.getLastId() + 1, "Bolognese", DatabaseSeller.getSellerById(1), 15000, FoodCategory.Western));
+        System.out.println("\nWestern Food");
+        for(Food food : DatabaseFood.getFoodByCategory(FoodCategory.Western))
+        {
+            System.out.println(food);
+        }
+        System.out.println("\nJapanese Food");
+        for(Food food : DatabaseFood.getFoodByCategory(FoodCategory.Japanese))
+        {
+            System.out.println(food + "\n");
+        }
     }
 }

@@ -33,12 +33,6 @@ public class DatabaseSeller
         }
         return null;
     }
-
-    public static boolean removeSeller(Seller seller)
-    {
-        SELLER_DATABASE.remove(seller);
-        return true;
-    }
     
     public static boolean addSeller(Seller seller)
     {
@@ -54,6 +48,7 @@ public class DatabaseSeller
             if(seller.getId() == id)
             {
                 SELLER_DATABASE.remove(seller);
+                return true;
             }
         }
         return false;

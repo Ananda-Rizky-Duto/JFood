@@ -5,6 +5,7 @@
  * @version 5 Maret 2020
  * 
  */
+
 import java.util.*;
 
 public class DatabaseCustomer
@@ -38,13 +39,13 @@ public class DatabaseCustomer
     {
         for(Customer customerCheck : CUSTOMER_DATABASE)
         {
-            if(customer.getEmail() == customerCheck.getEmail())
+            if(customer.getEmail().equals(customerCheck.getEmail()))
             {
                 return false;
             }
         }
         CUSTOMER_DATABASE.add(customer);
-        lastId = customer.getId() + 1;
+        lastId = customer.getId();
         return true;
     }
 
@@ -55,6 +56,7 @@ public class DatabaseCustomer
             if(customer.getId() == id)
             {
                 CUSTOMER_DATABASE.remove(customer);
+                return true;
             }
         }
         return false;

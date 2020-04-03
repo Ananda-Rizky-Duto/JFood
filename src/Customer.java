@@ -219,7 +219,7 @@ public class Customer
         
         else
         {
-            return "\n\nId = " + id +
+            return "Id = " + id +
                    "\nNama = " + name + 
                    "\nEmail = " + email + 
                    "\nPassword = " + password + 

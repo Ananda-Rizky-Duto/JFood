@@ -26,9 +26,10 @@ public abstract class Invoice
     public Invoice(int id, ArrayList<Food> foods, Customer customer)
     {
         this.id = id;
-        ArrayList<Food> Foods = new ArrayList<Food>();
+        this.foods = foods;
         this.customer = customer;
         date = setDate(Calendar.getInstance());
+        this.invoiceStatus = InvoiceStatus.Ongoing;
     }
 
     /*

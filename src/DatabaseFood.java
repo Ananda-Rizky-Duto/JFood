@@ -69,7 +69,7 @@ public class DatabaseFood
     public static boolean addFood(Food food)
     {
         FOOD_DATABASE.add(food);
-        lastId = food.getId() + 1;
+        lastId = food.getId();
         return true;
     }
 
@@ -80,6 +80,7 @@ public class DatabaseFood
             if(food.getId() == id)
             {
                 FOOD_DATABASE.remove(food);
+                return true;
             }
         }
         return false;

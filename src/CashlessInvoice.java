@@ -46,14 +46,14 @@ public class CashlessInvoice extends Invoice
         int n;
         for(n = 0; n < getFoods().size(); n++)
         {
-            if (promo != null && promo.getActive() == true && getFoods().get(n).getPrice() > promo.getMinPrice())
+            if (promo != null && promo.getActive() && getFoods().get(n).getPrice() > promo.getMinPrice())
             {
-                this.totalPrice = getFoods().get(n).getPrice() - promo.getDiscount();
+                this.totalPrice += getFoods().get(n).getPrice() - promo.getDiscount();
             }
             
             else
             {
-                this.totalPrice = getFoods().get(n).getPrice();
+                this.totalPrice += getFoods().get(n).getPrice();
             }
         }
     }
@@ -67,26 +67,25 @@ public class CashlessInvoice extends Invoice
             foods = foods + foodList.getName() + ", ";
         }
         foods = foods.substring(0, foods.length()-2);
-        int n = 0;
 
         if(promo != null)
         { 
-            if(promo.getActive() == true && getFoods().get(n).getPrice() >= promo.getMinPrice())
+            if(promo.getActive())
             {
                 return "==========INVOICE==========\n\n" +
-                       "ID : " + getId() +
-                       "\nFood : " + foods +
-                       "\nDate : " + sdf.format(super.getDate().getTime()) +
-                       "\nCustomer : " + getCustomer().getName() +
-                       "\nTotal price : " + getTotalPrice() +
-                       "\nStatus : " + getInvoiceStatus() +
-                       "\nPayment Type : " + getPaymentType() +
-                       "\n" +
-                       "\n==PROMO==\n" +
-                       "\nCode : " + promo.getCode() +
-                       "\nDiscount : " + promo.getDiscount() +
-                       "\nMinimum Price : " + promo.getMinPrice() +
-                       "\n";
+                    "ID : " + getId() +
+                    "\nFood : " + foods +
+                    "\nDate : " + sdf.format(super.getDate().getTime()) +
+                    "\nCustomer : " + getCustomer().getName() +
+                    "\nTotal price : " + getTotalPrice() +
+                    "\nStatus : " + getInvoiceStatus() +
+                    "\nPayment Type : " + getPaymentType() +
+                    "\n" +
+                    "\n==PROMO==\n" +
+                    "\nCode : " + promo.getCode() +
+                    "\nDiscount : " + promo.getDiscount() +
+                    "\nMinimum Price : " + promo.getMinPrice() +
+                    "\n";
             }
             
             else

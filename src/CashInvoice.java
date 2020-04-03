@@ -6,9 +6,7 @@
  */
 
 import java.util.*;
-import java.text.*;
-import java.text.SimpleDateFormat;  
-import java.util.Date; 
+import java.text.SimpleDateFormat;
 
 public class CashInvoice extends Invoice
 {
