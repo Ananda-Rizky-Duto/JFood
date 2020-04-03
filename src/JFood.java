@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * Kelas ini digunakan sebagai penyimpan fungsi main
  * 
@@ -78,8 +80,8 @@ public class JFood
         System.out.println(cashlessInvoice1 + "\n");
         System.out.println(cashInvoice1 + "\n");
          */
-
-        System.out.println("=====Modul 6=====\n");
+        /*
+        System.out.println("=====Modul 6 Case Study=====\n");
         DatabaseSeller.addSeller(new Seller(DatabaseSeller.getLastId() + 1, "Milo", "milo@gmail.com", "098765432112", location1));
         DatabaseCustomer.addCustomer(new Customer(DatabaseCustomer.getLastId() + 1, "Duto", "duto@gmail.com", "123456Ua", 2020, 3, 2));
         DatabaseCustomer.addCustomer(new Customer(DatabaseCustomer.getLastId() + 1, "Duto", "duto@gmail.com", "123456Ui", 2020, 3, 3));
@@ -87,7 +89,7 @@ public class JFood
         System.out.println("Customer");
         for(Customer customer : DatabaseCustomer.getCustomerDatabase())
         {
-            System.out.println(customer);
+            System.out.println(customer.toString());
         }
         DatabaseFood.addFood(new Food(DatabaseFood.getLastId() + 1, "Sushi", DatabaseSeller.getSellerById(1), 3000, FoodCategory.Japanese));
         DatabaseFood.addFood(new Food(DatabaseFood.getLastId() + 1, "Sashimi", DatabaseSeller.getSellerById(1), 7000, FoodCategory.Japanese));
@@ -95,12 +97,53 @@ public class JFood
         System.out.println("\nWestern Food");
         for(Food food : DatabaseFood.getFoodByCategory(FoodCategory.Western))
         {
-            System.out.println(food);
+            System.out.println(food.toString());
         }
         System.out.println("\nJapanese Food");
         for(Food food : DatabaseFood.getFoodByCategory(FoodCategory.Japanese))
         {
-            System.out.println(food + "\n");
+            System.out.println(food.toString() + "\n");
+        }
+         */
+        System.out.println("=====Modul 6 Post Test=====\n");
+        DatabaseCustomer.addCustomer(new Customer(DatabaseCustomer.getLastId() + 1, "Duto", "duto@gmail.com", "123456Ua", 2020, 3, 2));
+        DatabaseCustomer.addCustomer(new Customer(DatabaseCustomer.getLastId() + 1, "Duto", "duto@gmail.com", "123456Ui", 2020, 3, 3));
+        DatabaseCustomer.addCustomer(new Customer(DatabaseCustomer.getLastId() + 1, "Alwi", "alwi@gmail.com", "123456Ue", 2020, 3, 4));
+        DatabasePromo.addPromo(new Promo(DatabasePromo.getLastId() + 1, "asyique", 2000, 5000, false));
+        DatabasePromo.addPromo(new Promo(DatabasePromo.getLastId() + 1, "asyique", 1000, 4000, true));
+        for(Promo promo : DatabasePromo.getPromoDatabase())
+        {
+            System.out.println(promo.toString());
+        }
+        DatabaseFood.addFood(new Food(DatabaseFood.getLastId() + 1, "Sushi", DatabaseSeller.getSellerById(1), 3000, FoodCategory.Japanese));
+        DatabaseFood.addFood(new Food(DatabaseFood.getLastId() + 1, "Sashimi", DatabaseSeller.getSellerById(1), 7000, FoodCategory.Japanese));
+        DatabaseFood.addFood(new Food(DatabaseFood.getLastId() + 1, "Bolognese", DatabaseSeller.getSellerById(1), 15000, FoodCategory.Western));
+        ArrayList<Food> food1 = new ArrayList<Food>();
+        food1.add(DatabaseFood.getFoodById(1));
+        ArrayList<Food> food2 = new ArrayList<Food>();
+        food2.add(DatabaseFood.getFoodById(2));
+        DatabaseInvoice.addInvoice(new CashInvoice(DatabaseInvoice.getLastId() + 1, food1, DatabaseCustomer.getCustomerById(1), 2000));
+        for(Invoice invoice : DatabaseInvoice.getInvoiceByCustomer(1))
+        {
+            invoice.setTotalPrice();
+
+        }
+        DatabaseInvoice.addInvoice(new CashlessInvoice(DatabaseInvoice.getLastId() + 1, food2, DatabaseCustomer.getCustomerById(1), DatabasePromo.getPromoById(1)));
+        for(Invoice invoice : DatabaseInvoice.getInvoiceByCustomer(1))
+        {
+            invoice.setInvoiceStatus(InvoiceStatus.Finished);
+        }
+        DatabaseInvoice.addInvoice(new CashlessInvoice(DatabaseInvoice.getLastId() + 1, food2, DatabaseCustomer.getCustomerById(2), DatabasePromo.getPromoById(1)));
+        for(Promo promo : DatabasePromo.getPromoById(1))
+        {
+            promo.setActive(true);
+        }
+        for(Invoice invoice : DatabaseInvoice.getInvoiceDatabase())
+        {
+            invoice.setTotalPrice();
+        }
+        for(Invoice invoice : DatabaseInvoice.getInvoiceDatabase()) {
+            System.out.println(invoice.toString());
         }
     }
 }
