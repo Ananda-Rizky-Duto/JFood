@@ -42,6 +42,7 @@ public class CashInvoice extends Invoice
     public void setTotalPrice()
     {
         int n;
+        this.totalPrice = 0;
         if(this.deliveryFee > 0)
         {
             for(n = 0; n < getFoods().size(); n++)

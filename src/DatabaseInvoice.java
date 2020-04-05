@@ -54,7 +54,10 @@ public class DatabaseInvoice
         {
             if(invoiceCheck.getInvoiceStatus().equals(InvoiceStatus.Ongoing))
             {
-                return false;
+                if(invoice.getId() == invoiceCheck.getId())
+                {
+                    return false;
+                }
             }
         }
         INVOICE_DATABASE.add(invoice);

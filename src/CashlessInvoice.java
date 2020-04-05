@@ -44,6 +44,7 @@ public class CashlessInvoice extends Invoice
     public void setTotalPrice()
     {
         int n;
+        this.totalPrice = 0;
         for(n = 0; n < getFoods().size(); n++)
         {
             if (promo != null && promo.getActive() && getFoods().get(n).getPrice() > promo.getMinPrice())

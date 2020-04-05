@@ -154,7 +154,7 @@ public abstract class Invoice
     
     public void setInvoiceStatus(InvoiceStatus status)
     {
-        this.invoiceStatus = invoiceStatus;
+        this.invoiceStatus = status;
     }
     
     /*
