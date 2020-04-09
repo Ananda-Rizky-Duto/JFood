@@ -255,6 +255,7 @@ public class JFood
         DatabaseInvoice.addInvoice(new CashInvoice(DatabaseInvoice.getLastId() + 1, food1, DatabaseCustomer.getCustomerById(1), 2000));
         DatabaseInvoice.addInvoice(new CashInvoice(DatabaseInvoice.getLastId() + 1, food1, DatabaseCustomer.getCustomerById(2), 3000));
         DatabaseInvoice.addInvoice(new CashInvoice(DatabaseInvoice.getLastId() + 1, food1, DatabaseCustomer.getCustomerById(3), 4000));
+        //Tugas 9
         for(Invoice invoice : DatabaseInvoice.getInvoiceDatabase())
         {
             Thread calculate = new Thread(new PriceCalculator(invoice));

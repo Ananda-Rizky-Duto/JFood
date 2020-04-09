@@ -9,6 +9,7 @@ import java.util.*;
 
 public class DatabaseFood
 {
+    //Tugas 8
     private static final ArrayList<Food> FOOD_DATABASE = new ArrayList<Food>();
     private static int lastId = 0;
     

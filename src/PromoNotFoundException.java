@@ -1,5 +1,6 @@
 public class PromoNotFoundException extends Exception
 {
+    //Modul 7
     private int promo_error;
 
     public PromoNotFoundException(int promo_input)

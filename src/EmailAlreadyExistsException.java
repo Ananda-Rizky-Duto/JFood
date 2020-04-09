@@ -1,5 +1,6 @@
 public class EmailAlreadyExistsException extends Exception
 {
+    //Modul 7
     private Customer customer_error;
 
     public EmailAlreadyExistsException(Customer customer_input)

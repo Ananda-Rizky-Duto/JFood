@@ -9,6 +9,7 @@ import java.util.*;
 
 public class DatabasePromo
 {
+    //Tugas 8
     private static final ArrayList<Promo> PROMO_DATABASE = new ArrayList<Promo>();
     private static int lastId = 0;
 

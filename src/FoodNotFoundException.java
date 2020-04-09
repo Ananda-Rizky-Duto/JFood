@@ -1,5 +1,6 @@
 public class FoodNotFoundException extends Exception
 {
+    //Modul 7
     private int food_error;
 
     public FoodNotFoundException(int food_input)

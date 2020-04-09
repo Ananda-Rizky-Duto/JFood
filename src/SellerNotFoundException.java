@@ -1,5 +1,6 @@
 public class SellerNotFoundException extends Exception
 {
+    //Modul 7
     private int seller_error;
 
     public SellerNotFoundException(int seller_input)

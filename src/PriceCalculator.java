@@ -1,5 +1,6 @@
 public class PriceCalculator implements Runnable
 {
+    //Tugas 9
     Invoice invoice;
     public PriceCalculator(Invoice invoice)
     {

@@ -10,6 +10,7 @@ import java.util.*;
 
 public class DatabaseCustomer
 {
+    //Tugas 8
     private static final ArrayList<Customer> CUSTOMER_DATABASE = new ArrayList<Customer>();
     private static int lastId = 0;
 
