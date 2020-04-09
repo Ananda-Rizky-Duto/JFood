@@ -22,7 +22,7 @@ public class DatabaseSeller
         return lastId;
     }
 
-    public static Seller getSellerById(int id)
+    public static Seller getSellerById(int id) throws SellerNotFoundException
     {
         for(Seller seller : SELLER_DATABASE)
         {
@@ -31,7 +31,7 @@ public class DatabaseSeller
                 return seller;
             }
         }
-        return null;
+        throw new SellerNotFoundException(id);
     }
     
     public static boolean addSeller(Seller seller)
@@ -41,7 +41,7 @@ public class DatabaseSeller
         return true;
     }
 
-    public static boolean removeSeller(int id)
+    public static boolean removeSeller(int id) throws SellerNotFoundException
     {
         for(Seller seller : SELLER_DATABASE)
         {
@@ -51,6 +51,6 @@ public class DatabaseSeller
                 return true;
             }
         }
-        return false;
+        throw new SellerNotFoundException(id);
     }
 }

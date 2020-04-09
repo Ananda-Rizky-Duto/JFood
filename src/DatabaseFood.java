@@ -28,7 +28,7 @@ public class DatabaseFood
         return lastId;
     }
 
-    public static Food getFoodById(int id)
+    public static Food getFoodById(int id) throws FoodNotFoundException
     {
         for(Food food : FOOD_DATABASE)
         {
@@ -37,7 +37,7 @@ public class DatabaseFood
                 return food;
             }
         }
-        return null;
+        throw new FoodNotFoundException(id);
     }
 
     public static ArrayList<Food> getFoodBySeller(int sellerId)
@@ -73,7 +73,7 @@ public class DatabaseFood
         return true;
     }
 
-    public static boolean removeFood(int id)
+    public static boolean removeFood(int id) throws FoodNotFoundException
     {
         for(Food food : FOOD_DATABASE)
         {
@@ -83,6 +83,6 @@ public class DatabaseFood
                 return true;
             }
         }
-        return false;
+        throw new FoodNotFoundException(id);
     }
 }

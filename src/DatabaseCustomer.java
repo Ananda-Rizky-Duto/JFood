@@ -23,7 +23,7 @@ public class DatabaseCustomer
         return lastId;
     }
 
-    public static Customer getCustomerById(int id)
+    public static Customer getCustomerById(int id) throws CustomerNotFoundException
     {
         for(Customer customer : CUSTOMER_DATABASE)
         {
@@ -32,16 +32,16 @@ public class DatabaseCustomer
                 return customer;
             }
         }
-        return null;
+        throw new CustomerNotFoundException(id);
     }
 
-    public static boolean addCustomer(Customer customer)
+    public static boolean addCustomer(Customer customer) throws EmailAlreadyExistsException
     {
         for(Customer customerCheck : CUSTOMER_DATABASE)
         {
             if(customer.getEmail().equals(customerCheck.getEmail()))
             {
-                return false;
+                throw new EmailAlreadyExistsException(customer);
             }
         }
         CUSTOMER_DATABASE.add(customer);
@@ -49,7 +49,7 @@ public class DatabaseCustomer
         return true;
     }
 
-    public static boolean removeCustomer(int id)
+    public static boolean removeCustomer(int id) throws CustomerNotFoundException
     {
         for(Customer customer : CUSTOMER_DATABASE)
         {
@@ -59,6 +59,6 @@ public class DatabaseCustomer
                 return true;
             }
         }
-        return false;
+        throw new CustomerNotFoundException(id);
     }
 }

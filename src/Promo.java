@@ -74,7 +74,7 @@ public class Promo
    
    public String toString()
    {
-       return "Id = " + id + 
+       return "\nId = " + id +
               "\nCode = " + code + 
               "\nDiscount : " + discount + 
               "\nMinPrice = " + minPrice + 
