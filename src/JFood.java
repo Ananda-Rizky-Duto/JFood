@@ -257,9 +257,8 @@ public class JFood
         DatabaseInvoice.addInvoice(new CashInvoice(DatabaseInvoice.getLastId() + 1, food1, DatabaseCustomer.getCustomerById(3), 4000));
         for(Invoice invoice : DatabaseInvoice.getInvoiceDatabase())
         {
-            Thread calculate = new Thread(new PriceCalculator());
+            Thread calculate = new Thread(new PriceCalculator(invoice));
             calculate.start();
-            System.out.println(invoice.toString());
         }
     }
 }
