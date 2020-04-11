@@ -20,7 +20,8 @@ public class JFood
      * Metode main yang digunakan untuk mengisi objek dari beberapa kelas
      */
     
-    public static void main(String[] args) throws CustomerNotFoundException, EmailAlreadyExistsException, PromoCodeAlreadyExistsException, FoodNotFoundException, SellerNotFoundException {
+    public static void main(String[] args)
+    {
         Location location1 = new Location("Jakarta Timur", "DKI Jakarta", "Cipayung");
         //Seller seller1 = new Seller(1, "Milo", "milo@gmail.com", "098765432112", location1);
         //Food food1 = new Food(1, "Sushi", seller1, 3000, FoodCategory.Japanese);
@@ -163,8 +164,29 @@ public class JFood
         try
         {
             DatabaseCustomer.addCustomer(new Customer(DatabaseCustomer.getLastId() + 1, "Duto", "duto@gmail.com", "123456Ua", 2020, 3, 2));
+        }
+        catch(EmailAlreadyExistsException e)
+        {
+            System.out.println(e.getMessage());
+        }
+        try
+        {
             DatabaseCustomer.addCustomer(new Customer(DatabaseCustomer.getLastId() + 1, "Ayoy", "ayoy@gmail.com", "123456Ui", 2020, 3, 3));
+        }
+        catch(EmailAlreadyExistsException e)
+        {
+            System.out.println(e.getMessage());
+        }
+        try
+        {
             DatabaseCustomer.addCustomer(new Customer(DatabaseCustomer.getLastId() + 1, "Utoy", "utoy@gmail.com", "123456Ue", 2020, 3, 4));
+        }
+        catch(EmailAlreadyExistsException e)
+        {
+            System.out.println(e.getMessage());
+        }
+        try
+        {
             DatabaseCustomer.addCustomer(new Customer(DatabaseCustomer.getLastId() + 1, "Farhan", "duto@gmail.com", "123456Uo", 2020, 3, 5));
         }
         catch(EmailAlreadyExistsException e)
@@ -175,6 +197,13 @@ public class JFood
         try
         {
             DatabasePromo.addPromo(new Promo(DatabasePromo.getLastId() + 1, "asyique", 2000, 5000, true));
+        }
+        catch(PromoCodeAlreadyExistsException e)
+        {
+            System.out.println(e.getMessage());
+        }
+        try
+        {
             DatabasePromo.addPromo(new Promo(DatabasePromo.getLastId() + 1, "asyique", 1000, 4000, true));
         }
         catch(PromoCodeAlreadyExistsException e)
@@ -185,16 +214,38 @@ public class JFood
         try
         {
             DatabaseFood.addFood(new Food(DatabaseFood.getLastId() + 1, "Sushi", DatabaseSeller.getSellerById(1), 3000, FoodCategory.Japanese));
-            DatabaseFood.addFood(new Food(DatabaseFood.getLastId() + 1, "Sashimi", DatabaseSeller.getSellerById(1), 7000, FoodCategory.Japanese));
+        }
+        catch(SellerNotFoundException e)
+        {
+            System.out.println(e.getMessage());
+        }
+        try
+        {
             DatabaseFood.addFood(new Food(DatabaseFood.getLastId() + 1, "Bolognese", DatabaseSeller.getSellerById(1), 15000, FoodCategory.Western));
         }
         catch(SellerNotFoundException e)
         {
             System.out.println(e.getMessage());
         }
+        try
+        {
+            DatabaseFood.addFood(new Food(DatabaseFood.getLastId() + 1, "Sashimi", DatabaseSeller.getSellerById(1), 7000, FoodCategory.Japanese));
+        }
+        catch(SellerNotFoundException e)
+        {
+            System.out.println(e.getMessage());
+        }
 
-        DatabaseCustomer.addCustomer(new Customer(DatabaseCustomer.getLastId() + 1, "Hanif", "hanif@gmail.com", "123456Ue", 2020, 3, 6));
-        DatabaseCustomer.addCustomer(new Customer(DatabaseCustomer.getLastId() + 1, "Farhan", "farhan@gmail.com", "123456Uo", 2020, 3, 5));
+
+        try
+        {
+            DatabaseCustomer.addCustomer(new Customer(DatabaseCustomer.getLastId() + 1, "Hanif", "hanif@gmail.com", "123456Ue", 2020, 3, 6));
+        }
+        catch(EmailAlreadyExistsException e)
+        {
+            System.out.println(e.getMessage());
+        }
+
         try
         {
             System.out.println(DatabasePromo.getPromoById(10));
@@ -250,11 +301,39 @@ public class JFood
         }
         System.out.println();
 
-        ArrayList<Food> food1 = new ArrayList<Food>();
-        food1.add(DatabaseFood.getFoodById(1));
-        DatabaseInvoice.addInvoice(new CashInvoice(DatabaseInvoice.getLastId() + 1, food1, DatabaseCustomer.getCustomerById(1), 2000));
-        DatabaseInvoice.addInvoice(new CashInvoice(DatabaseInvoice.getLastId() + 1, food1, DatabaseCustomer.getCustomerById(2), 3000));
-        DatabaseInvoice.addInvoice(new CashInvoice(DatabaseInvoice.getLastId() + 1, food1, DatabaseCustomer.getCustomerById(3), 4000));
+        ArrayList<Food> food1 = new ArrayList<>();
+        try
+        {
+            food1.add(DatabaseFood.getFoodById(1));
+        }
+        catch(FoodNotFoundException e)
+        {
+            System.out.println(e.getMessage());
+        }
+        try
+        {
+            DatabaseInvoice.addInvoice(new CashInvoice(DatabaseInvoice.getLastId() + 1, food1, DatabaseCustomer.getCustomerById(1), 2000));
+        }
+        catch(CustomerNotFoundException e)
+        {
+            System.out.println(e.getMessage());
+        }
+        try
+        {
+            DatabaseInvoice.addInvoice(new CashInvoice(DatabaseInvoice.getLastId() + 1, food1, DatabaseCustomer.getCustomerById(2), 3000));
+        }
+        catch(CustomerNotFoundException e)
+        {
+            System.out.println(e.getMessage());
+        }
+        try
+        {
+            DatabaseInvoice.addInvoice(new CashInvoice(DatabaseInvoice.getLastId() + 1, food1, DatabaseCustomer.getCustomerById(3), 4000));
+        }
+        catch(CustomerNotFoundException e)
+        {
+            System.out.println(e.getMessage());
+        }
         //Tugas 9
         for(Invoice invoice : DatabaseInvoice.getInvoiceDatabase())
         {
