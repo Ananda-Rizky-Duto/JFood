@@ -159,6 +159,7 @@ public class JFood
             System.out.println(invoice.toString());
         }
         */
+
         System.out.println("=====Modul 7 Case Study=====\n");
         DatabaseSeller.addSeller(new Seller(DatabaseSeller.getLastId() + 1, "Milo", "milo@gmail.com", "098765432112", location1));
         try
@@ -310,6 +311,8 @@ public class JFood
         {
             System.out.println(e.getMessage());
         }
+
+        System.out.println("=====Modul 7 Post Test=====\n");
         try
         {
             DatabaseInvoice.addInvoice(new CashInvoice(DatabaseInvoice.getLastId() + 1, food1, DatabaseCustomer.getCustomerById(1), 2000));
@@ -318,27 +321,62 @@ public class JFood
         {
             System.out.println(e.getMessage());
         }
+        catch(OngoingInvoiceAlreadyExistsException e)
+        {
+            System.out.println(e.getMessage());
+        }
+
         try
         {
-            DatabaseInvoice.addInvoice(new CashInvoice(DatabaseInvoice.getLastId() + 1, food1, DatabaseCustomer.getCustomerById(2), 3000));
+            DatabaseInvoice.getInvoiceById(10);
+        }
+        catch(InvoiceNotFoundException e)
+        {
+            System.out.println(e.getMessage());
+        }
+
+        try
+        {
+            DatabaseInvoice.getInvoiceById(15);
+        }
+        catch(InvoiceNotFoundException e)
+        {
+            System.out.println(e.getMessage());
+        }
+
+        try
+        {
+            DatabaseInvoice.addInvoice(new CashInvoice(DatabaseInvoice.getLastId(), food1, DatabaseCustomer.getCustomerById(2), 3000));
         }
         catch(CustomerNotFoundException e)
         {
             System.out.println(e.getMessage());
         }
+        catch(OngoingInvoiceAlreadyExistsException e)
+        {
+            System.out.println(e.getMessage());
+        }
+
         try
         {
-            DatabaseInvoice.addInvoice(new CashInvoice(DatabaseInvoice.getLastId() + 1, food1, DatabaseCustomer.getCustomerById(3), 4000));
+            DatabaseInvoice.addInvoice(new CashInvoice(DatabaseInvoice.getLastId(), food1, DatabaseCustomer.getCustomerById(3), 4000));
         }
         catch(CustomerNotFoundException e)
         {
             System.out.println(e.getMessage());
         }
+        catch(OngoingInvoiceAlreadyExistsException e)
+        {
+            System.out.println(e.getMessage());
+        }
+
+        /*
         //Tugas 9
         for(Invoice invoice : DatabaseInvoice.getInvoiceDatabase())
         {
             Thread calculate = new Thread(new PriceCalculator(invoice));
             calculate.start();
-        }
+        }*/
+
     }
 }
