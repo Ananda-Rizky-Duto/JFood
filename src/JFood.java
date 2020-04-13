@@ -377,6 +377,5 @@ public class JFood
             Thread calculate = new Thread(new PriceCalculator(invoice));
             calculate.start();
         }*/
-
     }
 }

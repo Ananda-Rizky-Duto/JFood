@@ -10,6 +10,6 @@ public class OngoingInvoiceAlreadyExistsException extends Exception
 
     public String getMessage()
     {
-        return super.getMessage();
+        return super.getMessage() + ", Invoice ID : " + invoice_error.getId();
     }
 }
