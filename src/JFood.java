@@ -337,7 +337,7 @@ public class JFood
 
         try
         {
-            DatabaseInvoice.getInvoiceById(15);
+            DatabaseInvoice.removeInvoice(15);
         }
         catch(InvoiceNotFoundException e)
         {
