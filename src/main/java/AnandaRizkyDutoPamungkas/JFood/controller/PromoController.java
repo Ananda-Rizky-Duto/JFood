@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class PromoController
 {
-    @RequestMapping("/")
+    @RequestMapping("")
     public ArrayList<Promo> getAllPromo()
     {
         return DatabasePromo.getPromoDatabase();
@@ -24,7 +24,7 @@ public class PromoController
         return promo;
     }
 
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    @RequestMapping(value = "/", method = RequestMethod.POST)
     public Promo addPromo(@RequestParam(value="code") String code,
                           @RequestParam(value="discount") int discount,
                           @RequestParam(value="minPrice") int minPrice,

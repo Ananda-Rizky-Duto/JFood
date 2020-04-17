@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class SellerController
 {
-    @RequestMapping("/")
+    @RequestMapping("")
     public ArrayList<Seller> getAllSeller()
     {
         return DatabaseSeller.getSellerDatabase();
@@ -32,7 +32,7 @@ public class SellerController
         return seller;
     }
 
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    @RequestMapping(value = "/", method = RequestMethod.POST)
     public Seller addSeller(@RequestParam(value="name") String name,
                             @RequestParam(value="email") String email,
                             @RequestParam(value="phoneNumber") String phoneNumber,

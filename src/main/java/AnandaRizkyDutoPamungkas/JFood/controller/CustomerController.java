@@ -8,16 +8,15 @@ import org.springframework.web.bind.annotation.*;
 
 public class CustomerController
 {
-    @RequestMapping("/")
+    @RequestMapping("")
     public String indexPage(@RequestParam(value="name", defaultValue="world") String name)
     {
         return "Hello " + name;
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST )
-    public Customer loginCustomer(@RequestParam(value="name") String name,
-                                @RequestParam(value="email") String email,
-                                @RequestParam(value="password") String password)
+    public Customer loginCustomer(@RequestParam(value="email") String email,
+                                  @RequestParam(value="password") String password)
     {
         return DatabaseCustomer.customerLogin(email, password);
     }
