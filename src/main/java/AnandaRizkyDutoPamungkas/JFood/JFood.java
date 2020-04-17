@@ -61,6 +61,36 @@ public class JFood
             System.out.println(e.getMessage());
         }
 
+        ArrayList<Food> food1 = new ArrayList<>();
+        try
+        {
+            food1.add(DatabaseFood.getFoodById(1));
+        }
+        catch(FoodNotFoundException e)
+        {
+            System.out.println(e.getMessage());
+        }
+
+        ArrayList<Food> food2 = new ArrayList<>();
+        try
+        {
+            food1.add(DatabaseFood.getFoodById(2));
+        }
+        catch(FoodNotFoundException e)
+        {
+            System.out.println(e.getMessage());
+        }
+
+        ArrayList<Food> food3 = new ArrayList<>();
+        try
+        {
+            food1.add(DatabaseFood.getFoodById(3));
+        }
+        catch(FoodNotFoundException e)
+        {
+            System.out.println(e.getMessage());
+        }
+
         SpringApplication.run(JFood.class, args);
     }
 }
