@@ -10,13 +10,13 @@ import java.util.ArrayList;
 
 public class PromoController
 {
-    @RequestMapping("")
+    @RequestMapping(value="", method = RequestMethod.GET)
     public ArrayList<Promo> getAllPromo()
     {
         return DatabasePromo.getPromoDatabase();
     }
 
-    @RequestMapping("/{code}")
+    @RequestMapping(value="/{code}", method = RequestMethod.GET)
     public Promo getPromoByCode(@PathVariable String code)
     {
         Promo promo = null;

@@ -10,13 +10,13 @@ import java.util.ArrayList;
 
 public class FoodController
 {
-    @RequestMapping("")
+    @RequestMapping(value = "", method = RequestMethod.GET)
     public ArrayList<Food> getAllFood()
     {
         return DatabaseFood.getFoodDatabase();
     }
 
-    @RequestMapping("/{id}")
+    @RequestMapping(value="/{id}", method = RequestMethod.GET)
     public Food getFoodById(@PathVariable int id)
     {
         Food food = null;
@@ -32,7 +32,7 @@ public class FoodController
         return food;
     }
 
-    @RequestMapping("/seller/{sellerId}")
+    @RequestMapping(value="/seller/{sellerId}", method = RequestMethod.GET)
     public ArrayList<Food> getFoodBySeller(@PathVariable int sellerId)
     {
         ArrayList<Food> food = null;
@@ -40,7 +40,7 @@ public class FoodController
         return food;
     }
 
-    @RequestMapping("/category/{category}")
+    @RequestMapping(value="/category/{category}", method = RequestMethod.GET)
     public ArrayList<Food> getFoodByCategory(@PathVariable FoodCategory category)
     {
         ArrayList<Food> food = null;

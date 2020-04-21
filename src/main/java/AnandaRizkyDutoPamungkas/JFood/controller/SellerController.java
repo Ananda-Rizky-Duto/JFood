@@ -10,13 +10,13 @@ import java.util.ArrayList;
 
 public class SellerController
 {
-    @RequestMapping("")
+    @RequestMapping(value="", method = RequestMethod.GET)
     public ArrayList<Seller> getAllSeller()
     {
         return DatabaseSeller.getSellerDatabase();
     }
 
-    @RequestMapping("/{id}")
+    @RequestMapping(value="/{id}", method = RequestMethod.GET)
     public Seller getSellerById(@PathVariable int id)
     {
         Seller seller = null;

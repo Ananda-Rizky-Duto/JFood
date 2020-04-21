@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class CustomerController
 {
-    @RequestMapping("")
+    @RequestMapping(value="", method = RequestMethod.GET)
     public ArrayList<Customer> getAllCustomer() {
         return DatabaseCustomer.getCustomerDatabase();
     }
@@ -21,7 +21,7 @@ public class CustomerController
         return DatabaseCustomer.customerLogin(email, password);
     }
 
-    @RequestMapping("/{id}")
+    @RequestMapping(value="/{id}", method = RequestMethod.GET)
     public Customer getCustomerById(@PathVariable int id)
     {
         Customer customer = null;
