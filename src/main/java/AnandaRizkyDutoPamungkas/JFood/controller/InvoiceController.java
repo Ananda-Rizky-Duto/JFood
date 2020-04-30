@@ -7,6 +7,7 @@ import javax.xml.crypto.Data;
 import java.util.ArrayList;
 
 @RequestMapping("/invoice")
+@CrossOrigin(origins = "*", allowedHeaders = "")
 @RestController
 
 public class InvoiceController {
