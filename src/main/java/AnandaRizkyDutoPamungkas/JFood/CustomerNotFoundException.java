@@ -2,7 +2,6 @@ package AnandaRizkyDutoPamungkas.JFood;
 
 public class CustomerNotFoundException extends Exception
 {
-    //Modul 7
     private int customer_error;
 
     public CustomerNotFoundException(int customer_input)
