@@ -1,10 +1,10 @@
 package AnandaRizkyDutoPamungkas.JFood;
 
 /**
-* Write a description of class CashlessInvoice here.
+* Child class dari invoice class
 *
-* @author (your name)
-* @version (a version number or a date)
+* @author Ananda Rizky Duto Pamungkas
+* @version 10 Maret 2020
 */
     
 import java.util.*;
@@ -16,33 +16,61 @@ public class CashlessInvoice extends Invoice
 {
     private static final PaymentType PAYMENT_TYPE = PaymentType.Cashless;
     private Promo promo;
-    
+
+    /**
+     * Constructor pertama untuk objek invoice cashless
+     * @param id
+     * @param foods
+     * @param customer
+     */
     public CashlessInvoice(int id, ArrayList<Food> foods, Customer customer)
     {
         super(id, foods, customer);
     }
-        
+
+    /**
+     * Constructor kedua untuk objek invoice cashless dengan promo
+     * @param id
+     * @param foods
+     * @param customer
+     * @param promo
+     */
     public CashlessInvoice(int id, ArrayList<Food> foods, Customer customer, Promo promo)
     {
         super(id, foods, customer);
         this.promo = promo;
     }
-        
+
+    /**
+     * Getter tipe pembayaran
+     * @return PAYMENT_TYPE
+     */
     public PaymentType getPaymentType()
     {
         return PAYMENT_TYPE;
     }
-        
+
+    /**
+     * Getter promo
+     * @return promo
+     */
     public Promo getPromo()
     {
         return promo;
     }
-        
+
+    /**
+     * Setter promo
+     * @param promo
+     */
     public void setPromo(Promo promo)
     {
         this.promo = promo;
     }
-        
+
+    /**
+     * Metode yang meng-overload parent untuk menghitung total harga
+     */
     public void setTotalPrice()
     {
         int n;
@@ -60,7 +88,11 @@ public class CashlessInvoice extends Invoice
             }
         }
     }
-        
+
+    /**
+     * Method untuk menampilkan data
+     * @return string
+     */
     public String toString()
     {
         SimpleDateFormat sdf = new SimpleDateFormat("dd MMMM yyyy");

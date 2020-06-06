@@ -14,33 +14,61 @@ public class CashInvoice extends Invoice
 {
     private static final PaymentType PAYMENT_TYPE = PaymentType.Cash;
     private int deliveryFee;
-    
+
+    /**
+     * Constructor pertama untuk objek invoice cash
+     * @param id
+     * @param foods
+     * @param customer
+     */
     public CashInvoice(int id, ArrayList<Food> foods, Customer customer)
     {
         super(id, foods, customer);
     }
-    
+
+    /**
+     * Constructor kedua untuk objek invoice cash dengan delivery fee
+     * @param id
+     * @param foods
+     * @param customer
+     * @param deliveryFee
+     */
     public CashInvoice(int id, ArrayList<Food> foods, Customer customer, int deliveryFee)
     {
         super(id, foods, customer);
         this.deliveryFee = deliveryFee;
     }
-    
+
+    /**
+     * Getter tipe pembayaran
+     * @return PAYMENT_TYPE
+     */
     public PaymentType getPaymentType()
     {
         return PAYMENT_TYPE;
     }
-    
+
+    /**
+     * Getter delivery fee
+     * @return deliveryFee
+     */
     public int getDeliveryFee()
     {
         return deliveryFee;
     }
-    
+
+    /**
+     * Setter delivery fee
+     * @param deliveryFee
+     */
     public void setDeliveryFee(int deliveryFee)
     {
         this.deliveryFee = deliveryFee;
     }
-    
+
+    /**
+     * Metode yang meng-overload parent untuk menghitung total harga
+     */
     public void setTotalPrice()
     {
         int n;
@@ -64,7 +92,11 @@ public class CashInvoice extends Invoice
     
         }
     }
-    
+
+    /**
+     * Metode untuk menampilkan data
+     * @return string
+     */
     public String toString()
     {
         SimpleDateFormat sdf = new SimpleDateFormat("dd MMMM yyyy");

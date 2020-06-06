@@ -18,8 +18,7 @@ public class JFood
      * Metode main yang digunakan untuk mengisi objek dari beberapa kelas
      */
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) throws EmailAlreadyExistsException {
         DatabaseSeller.addSeller(new Seller(DatabaseSeller.getLastId() + 1, "Milo", "milo@gmail.com", "098765432112", new Location("DKI Jakarta", "Jakarta Barat", "Rumah Milo")));
         DatabaseSeller.addSeller(new Seller(DatabaseSeller.getLastId() + 1, "Eben", "eben@gmail.com", "098327382919", new Location("Jakarta Timur", "DKI Jakarta", "Rumah Eben")));
         DatabaseSeller.addSeller(new Seller(DatabaseSeller.getLastId() + 1, "Darrell", "darrell@gmail.com", "083210293919", new Location("Bogor", "Jawa Barat", "Rumah Darrell")));
@@ -132,7 +131,16 @@ public class JFood
         {
             System.out.println(e.getMessage());
         }
-        
+
+        try
+        {
+            DatabaseCustomer.addCustomer(new Customer(DatabaseCustomer.getLastId() + 1, "Utoy", "utoy@gmail.com", "123456Ui"));
+        }
+        catch (EmailAlreadyExistsException e)
+        {
+            e.getMessage();
+        }
+
         SpringApplication.run(JFood.class, args);
     }
 }

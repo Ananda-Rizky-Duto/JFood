@@ -1,8 +1,14 @@
 package AnandaRizkyDutoPamungkas.JFood;
 
+/**
+ * Kelas yang digunakan untuk menghitung total price menggunakan thread
+ *
+ * @author Ananda Rizky Duto Pamungkas
+ * @version 6 Juni 2020
+ */
+
 public class PriceCalculator implements Runnable
 {
-    //Tugas 9
     Invoice invoice;
     public PriceCalculator(Invoice invoice)
     {

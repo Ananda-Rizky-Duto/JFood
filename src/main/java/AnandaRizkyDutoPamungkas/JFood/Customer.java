@@ -24,21 +24,21 @@ public class Customer
     private static final String EMAIL_PATTERN = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^-]+(?:\\.[a-zA-Z0-9_!#$%&'*+/=?`{|}~^-]+)*@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$"; 
     private static final String PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,}$";
 
-    /*
-     * Metode untuk melakukan referensi dari suatu objek private pada kelas
+    /**
+     * Constructor untuk melakukan referensi dari suatu objek private pada kelas
      */
     
     public Customer(int id, String name, String email, String password, Calendar joinDate)
     {
         this.id = id;
         this.name = name;
-        setEmail(email);
-        setPassword(password);
+        this.email = email;
+        this.password = password;
         this.joinDate = joinDate;
     }
 
-    /*
-     * Metode untuk melakukan referensi dari suatu objek private pada kelas
+    /**
+     * Constructor untuk melakukan referensi dari suatu objek private pada kelas
      */
     
     public Customer(int id, String name, String email, String password, int year, int month, int dayOfMonth)
@@ -50,8 +50,8 @@ public class Customer
         this.joinDate = new GregorianCalendar(year, month, dayOfMonth);        
     }
     
-     /*
-     * Metode untuk melakukan referensi dari suatu objek private pada kelas
+     /**
+     * Constructor untuk melakukan referensi dari suatu objek private pada kelas
      */
     
     public Customer(int id, String name, String email, String password)
@@ -63,7 +63,7 @@ public class Customer
         this.joinDate = Calendar.getInstance();
     }
     
-    /*
+    /**
      * Metode untuk mendapatkan id pelanggan
      * 
      * @return id dari pelanggan
@@ -74,7 +74,7 @@ public class Customer
         return id;
     }
 
-    /*
+    /**
      * Metode untuk mendapatkan nama pelanggan
      * 
      * @return name dari pelanggan
@@ -85,7 +85,7 @@ public class Customer
         return name;
     }
 
-    /*
+    /**
      * Metode untuk mendapatkan email pelanggan
      * 
      * @return email dari pelanggan
@@ -96,7 +96,7 @@ public class Customer
         return email;
     }
 
-    /*
+    /**
      * Metode untuk mendapatkan password pelanggan
      * 
      * @return password dari pelanggan
@@ -107,7 +107,7 @@ public class Customer
         return password;
     }
 
-    /*
+    /**
      * Metode untuk mendapatkan waktu membuat akun dari pelanggan
      * 
      * @return joinDate dari pelanggan
@@ -118,7 +118,7 @@ public class Customer
         return joinDate;
     }
 
-    /*
+    /**
      * Metode untuk merubah id pelanggan
      * 
      * @return id dari pelanggan
@@ -129,10 +129,10 @@ public class Customer
         this.id = id;
     }
 
-    /*
+    /**
      * Metode untuk merubah nama pelanggan
      * 
-     * @return name dari pelanggan
+     * @param name dari pelanggan
      */
         
     public void setName(String name)
@@ -140,10 +140,10 @@ public class Customer
         this.name = name;
     }
 
-    /*
+    /**
      * Metode untuk merubah email pelanggan
      * 
-     * @return email dari pelanggan
+     * @param email dari pelanggan
      */
         
     public void setEmail(String email)
@@ -162,10 +162,10 @@ public class Customer
         }
     }
 
-    /*
+    /**
      * Metode untuk merubah password pelanggan
      * 
-     * @return password dari pelanggan
+     * @param password dari pelanggan
      */
         
     public void setPassword(String password)
@@ -184,10 +184,10 @@ public class Customer
         }
     }
 
-    /*
+    /**
      * Metode untuk merubah waktu membuat akun
      * 
-     * @return joinDate dari pelanggan
+     * @param joinDate dari pelanggan
      */
         
     public void setJoinDate(Calendar joinDate)
@@ -200,10 +200,9 @@ public class Customer
         this.joinDate = new GregorianCalendar(year, month, dayOfMonth);
     }
     
-    /*
+    /**
      * Metode untuk menampilkan data
      * 
-     * @return name dari pelanggan
      */
         
     public String toString()

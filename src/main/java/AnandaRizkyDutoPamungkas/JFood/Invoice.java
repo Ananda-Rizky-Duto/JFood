@@ -1,7 +1,7 @@
 package AnandaRizkyDutoPamungkas.JFood;
 
 /**
- * Kelas ini digunakan untuk getter data invoice pada JFood.
+ * Kelas ini digunakan untuk superclass invoice pada JFood.
  * 
  * @author Ananda Rizky Duto Pamungkas
  * @version 27 Februari 2020
@@ -21,10 +21,13 @@ public abstract class Invoice
     private InvoiceStatus invoiceStatus;
     private static final InvoiceStatus INVOICE_STATUS = InvoiceStatus.Ongoing;
 
-    /*
-     * Metode untuk melakukan referensi dari suatu objek private pada kelas
+    /**
+     * Constructor untuk objek invoice
+     * @param id
+     * @param foods
+     * @param customer
      */
-    
+
     public Invoice(int id, ArrayList<Food> foods, Customer customer)
     {
         this.id = id;
@@ -34,9 +37,8 @@ public abstract class Invoice
         this.invoiceStatus = InvoiceStatus.Ongoing;
     }
 
-    /*
+    /**
      * Metode untuk mendapatkan id invoice
-     * 
      * @return id dari invoice
      */
     
@@ -45,9 +47,8 @@ public abstract class Invoice
         return id;
     }
 
-    /*
+    /**
      * Metode untuk mendapatkan id makanan
-     * 
      * @return idFood dari invoice
      */
     
@@ -56,9 +57,8 @@ public abstract class Invoice
         return foods;
     }
     
-    /*
+    /**
      * Metode untuk mendapatkan tanggal invoice
-     * 
      * @return date dari invoice
      */
     
@@ -67,9 +67,8 @@ public abstract class Invoice
         return date;
     }
     
-    /*
+    /**
      * Metode untuk mendapatkan harga keseluruhan pada invoice
-     * 
      * @return totalPrice dari invoice
      */
     
@@ -78,9 +77,8 @@ public abstract class Invoice
         return totalPrice;
     }
     
-    /*
+    /**
      * Metode untuk mendapatkan nama pelanggan pada invoice
-     * 
      * @return customer dari pelanggan
      */
     
@@ -88,18 +86,27 @@ public abstract class Invoice
     {
         return customer;
     }
-    
+
+    /**
+     * Method yang akan di overload oleh child class invoice
+     * @return
+     */
+
     public abstract PaymentType getPaymentType();
-    
+
+    /**
+     * Getter status invoice
+     * @return invoiceStatus
+     */
+
     public InvoiceStatus getInvoiceStatus()
     {
         return invoiceStatus;
     }
     
-    /*
+    /**
      * Metode untuk merubah id invoice
-     * 
-     * @return id dari invoice
+     * @param id dari invoice
      */
     
     public void setId(int id)
@@ -107,10 +114,9 @@ public abstract class Invoice
         this.id = id;
     }
     
-    /*
+    /**
      * Metode untuk merubah id makanan pada invoice
-     * 
-     * @return idFood dari invoice
+     * @param foods dari invoice
      */
     
     public void setFoods(ArrayList<Food> foods)
@@ -118,9 +124,8 @@ public abstract class Invoice
         this.foods = foods;
     }
     
-    /*
+    /**
      * Metode untuk merubah tanggal invoice
-     * 
      * @return date dari invoice
      */
     
@@ -128,41 +133,48 @@ public abstract class Invoice
     {
         return date;
     }
-    
+
+    /**
+     * Setter tanggal pada invoice
+     * @param year
+     * @param month
+     * @param dayOfMonth
+     * @return date
+     */
     public Calendar setDate(int year, int month, int dayOfMonth)
     {
         date = new GregorianCalendar(year, month, dayOfMonth);
         return date;
     }
     
-    /*
-     * Metode untuk merubah harga keseluruhan pada invoice
-     * 
-     * @return totalPrice dari invoice
+    /**
+     * Metode untuk merubah harga keseluruhan pada invoice yang akan di overload oleh child class invoice
      */
     
     public abstract void setTotalPrice();
     
-    /*
+    /**
      * Metode untuk merubah pelanggan pada invoice
-     * 
-     * @return customer dari invoice
+     * @param customer dari invoice
      */
     
     public void setCustomer(Customer customer)
     {
         this.customer = customer;
     }
-    
+
+    /**
+     * Setter untuk merubah invoice status
+     * @param status
+     */
     public void setInvoiceStatus(InvoiceStatus status)
     {
         this.invoiceStatus = status;
     }
     
-    /*
+    /**
      * Metode untuk menampilkan data
-     * 
-     * @return idFood dari invoice
+     * @return string
      */
     
     public abstract String toString();

@@ -6,6 +6,13 @@ import org.springframework.web.bind.annotation.*;
 import javax.xml.crypto.Data;
 import java.util.ArrayList;
 
+/**
+ * Kelas yang digunakan untuk mengatur akses seller pada HTTP method
+ *
+ * @author Ananda Rizky Duto Pamungkas
+ * @version 6 Juni 2020
+ */
+
 @RequestMapping("/invoice")
 @CrossOrigin(origins = "*", allowedHeaders = "")
 @RestController
@@ -33,6 +40,18 @@ public class InvoiceController {
         ArrayList<Invoice> invoice = null;
         invoice = DatabaseInvoice.getInvoiceByCustomer(customerId);
         return invoice;
+    }
+
+    @RequestMapping(value = "/customerOngoing/{customerId}", method = RequestMethod.GET)
+    public Invoice getInvoiceByCustomerOngoing(@PathVariable int customerId) {
+        for(Invoice invoice : DatabaseInvoice.getInvoiceByCustomer(customerId))
+        {
+            if(invoice.getInvoiceStatus().equals(InvoiceStatus.Ongoing))
+            {
+                return invoice;
+            }
+        }
+        return null;
     }
 
     @RequestMapping(value = "/invoiceStatus/{id}", method = RequestMethod.PUT)
@@ -100,12 +119,15 @@ public class InvoiceController {
         }
         catch (OngoingInvoiceAlreadyExistsException e){
             e.getMessage();
+            e.printStackTrace();
+            return null;
         }
         catch (CustomerNotFoundException e)
         {
             e.getMessage();
+            e.printStackTrace();
+            return null;
         }
-        return null;
     }
 
     @RequestMapping(value = "/createCashlessInvoice", method = RequestMethod.POST)
@@ -133,11 +155,12 @@ public class InvoiceController {
         }
         catch (OngoingInvoiceAlreadyExistsException e){
             e.getMessage();
+            return null;
         }
         catch (CustomerNotFoundException e)
         {
             e.getMessage();
+            return null;
         }
-        return null;
     }
 }

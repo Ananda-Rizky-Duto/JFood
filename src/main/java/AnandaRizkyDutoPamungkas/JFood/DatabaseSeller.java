@@ -11,7 +11,6 @@ import java.util.*;
 
 public class DatabaseSeller
 {
-    //Tugas 8
     private static final ArrayList<Seller> SELLER_DATABASE = new ArrayList<Seller>();
     private static int lastId = 0;
     

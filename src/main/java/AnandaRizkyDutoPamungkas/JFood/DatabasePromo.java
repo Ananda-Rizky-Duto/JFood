@@ -1,21 +1,20 @@
 package AnandaRizkyDutoPamungkas.JFood;
 
 /**
- * Write a description of class DatabasePromo here.
+ * Untuk mengatur database promo
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Ananda Rizky Duto Pamungkas
+ * @version 5 Maret 2020
  */
 
 import java.util.*;
 
 public class DatabasePromo
 {
-    //Tugas 8
     private static final ArrayList<Promo> PROMO_DATABASE = new ArrayList<Promo>();
     private static int lastId = 0;
 
-    /*
+    /**
      * Metode untuk menambahkan makanan pada JFood
      *
      * @return sementara false
