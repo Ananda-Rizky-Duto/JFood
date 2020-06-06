@@ -132,15 +132,6 @@ public class JFood
             System.out.println(e.getMessage());
         }
 
-        try
-        {
-            DatabaseCustomer.addCustomer(new Customer(DatabaseCustomer.getLastId() + 1, "Utoy", "utoy@gmail.com", "123456Ui"));
-        }
-        catch (EmailAlreadyExistsException e)
-        {
-            e.getMessage();
-        }
-
         SpringApplication.run(JFood.class, args);
     }
 }

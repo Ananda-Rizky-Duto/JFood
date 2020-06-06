@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 
 /**
- * Kelas yang digunakan untuk mengatur akses seller pada HTTP method
+ * Kelas yang digunakan untuk mengatur akses food pada HTTP method
  *
  * @author Ananda Rizky Duto Pamungkas
  * @version 6 Juni 2020
