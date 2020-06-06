@@ -13,7 +13,7 @@ public class DatabasePromoPostgres {
      * @param promo object customer to be input
      * @return object customer if success
      */
-    public static Promo insertPromo(Promo promo) {
+    public static Promo addPromo(Promo promo) {
         Connection c = connection();
         PreparedStatement stmt;
         try {

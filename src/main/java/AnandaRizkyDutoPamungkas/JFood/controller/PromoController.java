@@ -21,14 +21,14 @@ public class PromoController
     @RequestMapping(value="", method = RequestMethod.GET)
     public ArrayList<Promo> getAllPromo()
     {
-        return DatabasePromo.getPromoDatabase();
+        return DatabasePromoPostgres.getPromoDatabase();
     }
 
     @RequestMapping(value="/{code}", method = RequestMethod.GET)
     public Promo getPromoByCode(@PathVariable String code)
     {
         Promo promo = null;
-        promo = DatabasePromo.getPromoByCode(code);
+        promo = DatabasePromoPostgres.getPromoByCode(code);
         return promo;
     }
 
@@ -38,16 +38,8 @@ public class PromoController
                           @RequestParam(value="minPrice") int minPrice,
                           @RequestParam(value="active") boolean active)
     {
-        try
-        {
-            Promo promo = new Promo(DatabasePromo.getLastId() + 1, code, discount, minPrice, active);
-            DatabasePromo.addPromo(promo);
-            return promo;
-        }
-        catch(PromoCodeAlreadyExistsException e)
-        {
-            e.getMessage();
-            return null;
-        }
+        Promo promo = new Promo(DatabasePromo.getLastId() + 1, code, discount, minPrice, active);
+        DatabasePromoPostgres.addPromo(promo);
+        return promo;
     }
 }
